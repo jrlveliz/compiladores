@@ -14,6 +14,7 @@ public class Scanner{
 		sInputFile = sFileName;
 		//FileInputStream flInput = FileInputStream(sFileName);
 
+		Log.write("stage: [scanner]");
 		System.out.println("stage: [scanner]");
 		Debug.print("debug: [scanner]", sStage);
 
