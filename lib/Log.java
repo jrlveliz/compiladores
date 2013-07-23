@@ -17,7 +17,6 @@ public class Log{
 			System.out.println("ERROR: No se ha inicializado el módulo Log");
 		}else{
 			try{
-				Debug.Always(text);
 				out.println(text + "\r\n");
 			}catch(Exception ex){
 				System.out.println("ERROR: " + ex.getMessage());

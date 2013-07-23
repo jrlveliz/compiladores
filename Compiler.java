@@ -26,6 +26,7 @@ public class Compiler{
 					Debug.target = args[i+1];
 					iOptIndex=1; break;
 				case "-opt":
+					Debug.optimization = args[i+1];
 					iOptIndex=2; break;
 				case "-debug":
 					iOptIndex=3; break;
@@ -40,6 +41,10 @@ public class Compiler{
 				options[iOptIndex] = args[i+1];
 				bParametroEnviado = true;
 			}
+		}
+
+		if(options[0] == null || options[0] == ""){
+			options[0] = "default_output.txt";
 		}
 
 		if(args.length > 0){

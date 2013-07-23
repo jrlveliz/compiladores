@@ -1,4 +1,4 @@
-make: lib\Debug.class scanner\Scanner.class parser\CC4Parser.class ast\Ast.class semantic\Semantic.class irt\Irt.class codegen\Codegen.class Compiler.class
+make: lib\Debug.class scanner\Scanner.class parser\CC4Parser.class ast\Ast.class semantic\Semantic.class irt\Irt.class opt\Algebraic.class opt\ConstantFolding.class codegen\Codegen.class Compiler.class
 
 Compiler.class: Compiler.java
 	javac Compiler.java
@@ -18,6 +18,12 @@ semantic\Semantic.class: semantic/Semantic.java
 irt\Irt.class: irt/Irt.java
 	javac irt/Irt.java
 
+opt\Algebraic.class: opt/Algebraic.java
+	javac opt/Algebraic.java
+
+opt\ConstantFolding.class: opt/ConstantFolding.java
+	javac opt/ConstantFolding.java
+
 codegen\Codegen.class: codegen/Codegen.java
 	javac codegen/Codegen.java
 
@@ -31,5 +37,8 @@ clean:
 	rm ast/Ast.class
 	rm semantic/Semantic.class
 	rm irt/Irt.class
+	rm codegen/Codegen.class
+	rm opt/Algebraic.class
+	rm opt/ConstantFolding.class
 	rm codegen/Codegen.class
 	rm lib/Debug.class

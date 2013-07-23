@@ -9,6 +9,7 @@ public class Debug{
 	public static boolean DebugCodeGen = false;
 	public static boolean DebugSemantic = false;
 	public static String target = "";
+	public static String optimization = "";
 
 	public static void print(String sDebugText, String sStage){
 		if(
