@@ -1,4 +1,4 @@
-package compiladores.lib;
+package compiler.lib;
 
 public class Debug{
 	public static boolean DebugScanner = false;

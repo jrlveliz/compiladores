@@ -1,6 +1,6 @@
-package compiladores.opt;
-import compiladores.lib.*;
-import compiladores.irt.*;
+package compiler.opt;
+import compiler.lib.*;
+import compiler.irt.*;
 
 public class Algebraic{
 	private String sStage;

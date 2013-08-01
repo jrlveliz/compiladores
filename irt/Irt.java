@@ -1,8 +1,8 @@
-package compiladores.irt;
-import compiladores.lib.*;
-import compiladores.semantic.*;
-import compiladores.codegen.*;
-import compiladores.opt.*;
+package compiler.irt;
+import compiler.lib.*;
+import compiler.semantic.*;
+import compiler.codegen.*;
+import compiler.opt.*;
 
 public class Irt{
 	private String sStage;

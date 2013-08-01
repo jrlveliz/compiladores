@@ -1,8 +1,8 @@
-package compiladores.scanner;
+package compiler.scanner;
 import java.io.*;
-import compiladores.lib.*;
-import compiladores.*;
-import compiladores.parser.*;
+import compiler.lib.*;
+import compiler.*;
+import compiler.parser.*;
 
 public class Scanner{
 	private String sInputFile;

@@ -1,5 +1,5 @@
-import compiladores.lib.*;
-import compiladores.scanner.*;
+import compiler.lib.*;
+import compiler.scanner.*;
 
 public class Compiler{
 	private static String[] options;

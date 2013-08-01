@@ -1,8 +1,8 @@
-package compiladores.parser;
-import compiladores.lib.*;
-import compiladores.*;
-import compiladores.scanner.*;
-import compiladores.ast.*;
+package compiler.parser;
+import compiler.lib.*;
+import compiler.*;
+import compiler.scanner.*;
+import compiler.ast.*;
 
 public class CC4Parser{
 	private String sStage;

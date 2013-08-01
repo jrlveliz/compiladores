@@ -1,7 +1,7 @@
-package compiladores.ast;
-import compiladores.lib.*;
-import compiladores.parser.*;
-import compiladores.semantic.*;
+package compiler.ast;
+import compiler.lib.*;
+import compiler.parser.*;
+import compiler.semantic.*;
 
 public class Ast{
 	private String sStage;

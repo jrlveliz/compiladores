@@ -1,6 +1,6 @@
-package compiladores.codegen;
-import compiladores.lib.*;
-import compiladores.irt.*;
+package compiler.codegen;
+import compiler.lib.*;
+import compiler.irt.*;
 
 public class Codegen{
 	private String sStage;

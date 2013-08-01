@@ -1,4 +1,4 @@
-package compiladores.lib;
+package compiler.lib;
 import java.io.*;
 
 public class Log{

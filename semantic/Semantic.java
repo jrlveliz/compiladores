@@ -1,7 +1,7 @@
-package compiladores.semantic;
-import compiladores.lib.*;
-import compiladores.ast.*;
-import compiladores.irt.*;
+package compiler.semantic;
+import compiler.lib.*;
+import compiler.ast.*;
+import compiler.irt.*;
 
 public class Semantic{
 	private String sStage;
