@@ -1,0 +1,12 @@
+stage: [scanner]
+
+stage: [parser]
+
+stage: [ast]
+
+stage: [semantic]
+
+stage: [irt]
+
+stage: [codegen]
+
