@@ -11,8 +11,7 @@ CHAR_LIT	: '\'' (CHAR) '\'';
 STRING_LIT	: '\"' (CHAR)* '\"';
 BOOLEAN_LIT	: (BOOL);
 
-ID			: ('_' | ALPHA)(ALPHA | DIGIT | '_')*;
-
+PROGRAM				: 'Program';
 fragment BOOL 		: ('true' | 'false');
 fragment ALPHA		: ('a'..'z' | 'A'..'Z');
 fragment HEXDIG		: (DIGIT | ('a'..'f'|'A'..'F'));
@@ -51,6 +50,7 @@ CLASS			:	'class';
 ELSE			:	'else';
 RETURN			:	'return';
 INT				:	'int';
+ID				: 	('_' | ALPHA)(ALPHA | DIGIT | '_')*;
 /* *****************************                    ***************************** */
 
 /* *****************************     Operadores     ***************************** */
@@ -77,4 +77,17 @@ MOD			:	'%';
 // De Asignación
 ASSIGN		:	'=';
 ASSIGN_PLUS	:	'+=';
+ASSIGN_SUBS:	'-=';
 /* *****************************                    ***************************** */
+
+
+BIN_OP				:	ARITH_OP | REL_OP | EQ_OP | COND_OP;
+
+fragment ARITH_OP	:	PLUS | SUBS | TIMES | DIV | MOD;
+fragment COND_OP	:	AND | OR;
+fragment REL_OP		:	GREATER | LESS | GTOE | LTOE;
+fragment EQ_OP		:	EQUAL | NOT_EQUAL;
+
+ASSIGN_OP			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
+
+LITERAL				:	INT_LIT | CHAR_LIT | BOOLEAN_LIT;
