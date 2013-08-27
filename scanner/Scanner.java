@@ -3,10 +3,6 @@ import java.io.*;
 import compiler.lib.*;
 import compiler.*;
 import compiler.parser.*;
-<<<<<<< HEAD
-=======
-import compiler.scanner.*;
->>>>>>> 496423e6ce1a28de16bb98e354173b038fa69330
 import org.antlr.v4.runtime.*;
 
 public class Scanner{
@@ -31,7 +27,7 @@ public class Scanner{
 				if(tk.getType() == DecafLexer.WHITESPACE){
 					System.out.println("");
 				}else{
-					System.out.print(lexer.ruleNames[tk.getType() - 1] + " ");
+					System.out.print(lexer.tokenNames[tk.getType()] + " ");
 				}
 
 				tk = lexer.nextToken();
@@ -48,11 +44,8 @@ public class Scanner{
 			CC4Parser parser1 = new CC4Parser(this);
 		}
 	}
-<<<<<<< HEAD
 
 	public String GetFileName(){
 		return sInputFile;
 	}
-=======
->>>>>>> 496423e6ce1a28de16bb98e354173b038fa69330
 }

@@ -15,9 +15,25 @@ public class CC4Parser{
 		System.out.println("stage: [parser]");
 		Debug.print("debug: [parser]", sStage);
 
-		DecafLexer lexer = new DecafLexer(new ANTLRFileStream(scanner1.GetFileName()));
-		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		DecafParser parser = new DecafParser(tokens);
+		DecafLexer lexer = null;
+
+		try{
+			lexer = new DecafLexer(new ANTLRFileStream(scanner1.GetFileName()));
+		}catch(Exception ex){
+			System.out.println("ERROR: El archivo enviado como parámetro no existe.");
+		}
+
+		CommonTokenStream tokens;
+		DecafParser parser;
+
+		if(lexer != null){
+			tokens = new CommonTokenStream(lexer);
+			parser = new DecafParser(tokens);
+
+			parser.program();
+		}
+
+
 
 		if(!Debug.target.equals(sStage)){
 			Ast ast1 = new Ast(this);
