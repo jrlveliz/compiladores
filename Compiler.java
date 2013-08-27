@@ -1,5 +1,6 @@
 import compiler.lib.*;
 import compiler.scanner.*;
+import java.io.*;
 
 public class Compiler{
 	private static String[] options;
@@ -87,7 +88,14 @@ public class Compiler{
 			System.out.println(sAyuda);
 		}else{
 			Log.init(options[0]);
-			Scanner scanner1 = new Scanner(options[5]);
+			File f = new File(options[5]);
+			if(f.exists()) {
+				Scanner scanner1 = new Scanner(options[5]);
+			} else {
+				Log.write("Archivo de entrada no existe");
+				System.out.println("Archivo de entrada no existe");
+			}
+
 			Log.close();
 		}
 	}
