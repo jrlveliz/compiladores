@@ -8,6 +8,16 @@ options{
 	tokenVocab=DecafLexer;
 }
 
+@members {
+    public void displayRecognitionError(String[] tokenNames, RecognitionException e) {
+        String hdr = getErrorHeader(e);
+        String msg = getErrorMessage(e, tokenNames);
+        // Now do something with hdr and msg...
+
+		System.out.println(msg);
+    }
+}
+
 /* ***************************** Tipos de Variables ***************************** */
 program				:	CLASS PROGRAM LBRACE (field_decl)* (method_decl)* RBRACE 
 						{CC4Parser.detectRule("PROGRAM RULE");};
@@ -19,7 +29,7 @@ method_decl			:	(type | VOID) ID LPAR ((type ID COMMA)* (type ID) )?	RPAR block
 						{CC4Parser.detectRule("METHOD DECLARATION RULE");};
 
 block 				:	LBRACE (var_decl)* (statement)*	RBRACE
-						{CC4Parser.detectRule("BLOCK RULE");};F
+						{CC4Parser.detectRule("BLOCK RULE");};
 
 var_decl			:	type (ID COMMA)* ID SEMIC
 						{CC4Parser.detectRule("VARIABLE DECLARATION RULE");};

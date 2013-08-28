@@ -54,6 +54,7 @@ public class DecafParser extends Parser {
 
 	@Override
 	public ATN getATN() { return _ATN; }
+	public void displayRecognitionError(String[] tokenNames, RecognitionException e){String hdr = getErrorHeader(e);String msg = getErrorMessage(e, tokenNames);System.out.println(msg);}
 
 	public DecafParser(TokenStream input) {
 		super(input);

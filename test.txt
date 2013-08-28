@@ -1,5 +1,5 @@
 class Program{
-	int i;
+	int i
 
 	void metodo1(){
 		i=1;
