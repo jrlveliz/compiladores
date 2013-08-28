@@ -22,18 +22,16 @@ public class Scanner{
 	try {
 			DecafLexer lexer = new DecafLexer(new ANTLRFileStream(sFileName));
 			Token tk = lexer.nextToken();
+			String sOut = "Línea\t\t" + "Token\t\t" + "Lexema\t\t\n";
 
 			while(tk.getType() != Token.EOF){
-				if(tk.getType() == DecafLexer.WHITESPACE){
-					System.out.println("");
-				}else{
-					System.out.print(lexer.tokenNames[tk.getType()] + " ");
-				}
+
+				sOut += tk.getLine() + "\t\t" + lexer.ruleNames[tk.getType() - 1] + "\t\t" + tk.getText() + "\n";
 
 				tk = lexer.nextToken();
 			}
-			
-			System.out.println("");
+
+			System.out.println(sOut);
 
 		} catch (Exception e) {
 			System.err.println("usage: DecafLexer <file>\nwhere file is the path to the filename with the tokens");

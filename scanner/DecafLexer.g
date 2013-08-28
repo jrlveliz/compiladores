@@ -5,6 +5,7 @@ package compiler.scanner;
 }
 
 /* ***************************** Tipos de Variables ***************************** */
+LITERAL		:	INT_LIT | CHAR_LIT | BOOLEAN_LIT;
 INT_LIT		: (DIGIT)+ | HEX_LIT;
 HEX_LIT		: '0x' HEXDIG+;
 CHAR_LIT	: '\'' (CHAR) '\'';
@@ -12,17 +13,12 @@ STRING_LIT	: '\"' (CHAR)* '\"';
 BOOLEAN_LIT	: (BOOL);
 
 PROGRAM				: 'Program';
-fragment BOOL 		: ('true' | 'false');
-fragment ALPHA		: ('a'..'z' | 'A'..'Z');
-fragment HEXDIG		: (DIGIT | ('a'..'f'|'A'..'F'));
-fragment DIGIT		: ('0'..'9');
-fragment CHAR		: ' '..'!' | '#'..'&' | '('..'[' | ']'..'~' | SEQUENCE;
-fragment SEQUENCE	: '\\\\' | '\\"'| '\\\'' | '\\n' | '\\t';
 /* *****************************                    ***************************** */
 
 /* *****************************       Ignorar      ***************************** */
-COMMENT: 		'//' ~('\n' | '\r') '\r'? '\n' 	-> channel(HIDDEN);
-WHITESPACE :	(' '| '\t'|'\n'|'\r')   		-> channel(HIDDEN);
+COMMENT: 		'//' ~('\n' | '\r') '\r'? '\n' 	{skip();};
+WHITESPACE :	(' '| '\t'|'\n'|'\r')   		{skip();};
+NEWLINE:		'\n'							{skip();};
 /* *****************************                    ***************************** */
 
 /* *****************************      Keywords      ***************************** */
@@ -75,11 +71,11 @@ DIV			:	'/';
 MOD			:	'%';
 
 // De Asignación
-ASSIGN		:	'=';
-ASSIGN_PLUS	:	'+=';
-ASSIGN_SUBS:	'-=';
+ASSIGN_OP			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
+ASSIGN				:	'=';
+ASSIGN_PLUS			:	'+=';
+ASSIGN_SUBS			:	'-=';
 /* *****************************                    ***************************** */
-
 
 BIN_OP				:	ARITH_OP | REL_OP | EQ_OP | COND_OP;
 
@@ -88,6 +84,9 @@ fragment COND_OP	:	AND | OR;
 fragment REL_OP		:	GREATER | LESS | GTOE | LTOE;
 fragment EQ_OP		:	EQUAL | NOT_EQUAL;
 
-ASSIGN_OP			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
-
-LITERAL				:	INT_LIT | CHAR_LIT | BOOLEAN_LIT;
+fragment BOOL 		: ('true' | 'false');
+fragment ALPHA		: ('a'..'z' | 'A'..'Z');
+fragment HEXDIG		: (DIGIT | ('a'..'f'|'A'..'F'));
+fragment DIGIT		: ('0'..'9');
+fragment CHAR		: ' '..'!' | '#'..'&' | '('..'[' | ']'..'~' | SEQUENCE;
+fragment SEQUENCE	: '\\\\' | '\\"'| '\\\'' | '\\n' | '\\t';

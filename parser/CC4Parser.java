@@ -39,4 +39,8 @@ public class CC4Parser{
 			Ast ast1 = new Ast(this);
 		}
 	}
+
+	public static void detectRule(String sRule){
+		System.out.println(sRule + " detected.");
+	}
 }
