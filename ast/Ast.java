@@ -9,8 +9,8 @@ public class Ast{
 	public Ast(CC4Parser parser1){
 		sStage = "ast"; // Who am I?
 
-		Log.write("stage: [ast]");
-		System.out.println("stage: [ast]");
+		//Log.write("stage: [ast]");
+		//System.out.println("stage: [ast]");
 		Debug.print("debug: [ast]", sStage);
 
 		// Verificamos si hasta aquí tiene que llegar

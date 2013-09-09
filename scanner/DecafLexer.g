@@ -4,13 +4,17 @@ lexer grammar DecafLexer;
 package compiler.scanner;
 }
 
+/* *****************************       Errores      ***************************** */
+
+/* *****************************                    ***************************** */
+
 /* ***************************** Tipos de Variables ***************************** */
 LITERAL		:	INT_LIT | CHAR_LIT | BOOLEAN_LIT;
-INT_LIT		: (DIGIT)+ | HEX_LIT;
-HEX_LIT		: '0x' HEXDIG+;
-CHAR_LIT	: '\'' (CHAR) '\'';
-STRING_LIT	: '\"' (CHAR)* '\"';
-BOOLEAN_LIT	: (BOOL);
+INT_LIT		: 	(DIGIT)+ | HEX_LIT;
+HEX_LIT		: 	'0x' HEXDIG+;
+CHAR_LIT	: 	'\'' (CHAR) '\'';
+STRING_LIT	: 	'\"' (CHAR)* '\"';
+BOOLEAN_LIT	: 	(BOOL);
 
 PROGRAM				: 'Program';
 /* *****************************                    ***************************** */

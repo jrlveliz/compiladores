@@ -54,7 +54,11 @@ public class DecafParser extends Parser {
 
 	@Override
 	public ATN getATN() { return _ATN; }
-	public void displayRecognitionError(String[] tokenNames, RecognitionException e){String hdr = getErrorHeader(e);String msg = getErrorMessage(e, tokenNames);System.out.println(msg);}
+
+
+	    public void emitErrorMessage(String msg) {
+	        System.err.println(msg);
+	    }
 
 	public DecafParser(TokenStream input) {
 		super(input);
@@ -566,7 +570,6 @@ public class DecafParser extends Parser {
 			return getRuleContext(BlockContext.class,i);
 		}
 		public TerminalNode BREAK() { return getToken(DecafParser.BREAK, 0); }
-		public TerminalNode EQUAL() { return getToken(DecafParser.EQUAL, 0); }
 		public Method_callContext method_call() {
 			return getRuleContext(Method_callContext.class,0);
 		}
@@ -582,6 +585,7 @@ public class DecafParser extends Parser {
 		}
 		public TerminalNode ELSE() { return getToken(DecafParser.ELSE, 0); }
 		public TerminalNode FOR() { return getToken(DecafParser.FOR, 0); }
+		public TerminalNode ASSIGN() { return getToken(DecafParser.ASSIGN, 0); }
 		public TerminalNode COMMA() { return getToken(DecafParser.COMMA, 0); }
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
@@ -655,7 +659,7 @@ public class DecafParser extends Parser {
 				{
 				setState(140); match(FOR);
 				setState(141); match(ID);
-				setState(142); match(EQUAL);
+				setState(142); match(ASSIGN);
 				setState(143); expr(0);
 				setState(144); match(COMMA);
 				setState(145); expr(0);
@@ -1174,15 +1178,15 @@ public class DecafParser extends Parser {
 		"\u0086\7\16\2\2\u0086\u0087\7\33\2\2\u0087\u0088\5\26\f\2\u0088\u0089"+
 		"\7\34\2\2\u0089\u008c\5\b\5\2\u008a\u008b\7\27\2\2\u008b\u008d\5\b\5\2"+
 		"\u008c\u008a\3\2\2\2\u008c\u008d\3\2\2\2\u008d\u00a3\3\2\2\2\u008e\u008f"+
-		"\7\17\2\2\u008f\u0090\7\32\2\2\u0090\u0091\7#\2\2\u0091\u0092\5\26\f\2"+
-		"\u0092\u0093\7\36\2\2\u0093\u0094\5\26\f\2\u0094\u0095\5\b\5\2\u0095\u00a3"+
-		"\3\2\2\2\u0096\u0098\7\30\2\2\u0097\u0099\5\26\f\2\u0098\u0097\3\2\2\2"+
-		"\u0098\u0099\3\2\2\2\u0099\u009a\3\2\2\2\u009a\u00a3\7\35\2\2\u009b\u009c"+
-		"\7\r\2\2\u009c\u00a3\7\35\2\2\u009d\u009e\7\20\2\2\u009e\u00a3\7\35\2"+
-		"\2\u009f\u00a0\5\b\5\2\u00a0\u00a1\b\b\1\2\u00a1\u00a3\3\2\2\2\u00a2}"+
-		"\3\2\2\2\u00a2\u0082\3\2\2\2\u00a2\u0085\3\2\2\2\u00a2\u008e\3\2\2\2\u00a2"+
-		"\u0096\3\2\2\2\u00a2\u009b\3\2\2\2\u00a2\u009d\3\2\2\2\u00a2\u009f\3\2"+
-		"\2\2\u00a3\17\3\2\2\2\u00a4\u00a5\5\22\n\2\u00a5\u00af\7\33\2\2\u00a6"+
+		"\7\17\2\2\u008f\u0090\7\32\2\2\u0090\u0091\7\62\2\2\u0091\u0092\5\26\f"+
+		"\2\u0092\u0093\7\36\2\2\u0093\u0094\5\26\f\2\u0094\u0095\5\b\5\2\u0095"+
+		"\u00a3\3\2\2\2\u0096\u0098\7\30\2\2\u0097\u0099\5\26\f\2\u0098\u0097\3"+
+		"\2\2\2\u0098\u0099\3\2\2\2\u0099\u009a\3\2\2\2\u009a\u00a3\7\35\2\2\u009b"+
+		"\u009c\7\r\2\2\u009c\u00a3\7\35\2\2\u009d\u009e\7\20\2\2\u009e\u00a3\7"+
+		"\35\2\2\u009f\u00a0\5\b\5\2\u00a0\u00a1\b\b\1\2\u00a1\u00a3\3\2\2\2\u00a2"+
+		"}\3\2\2\2\u00a2\u0082\3\2\2\2\u00a2\u0085\3\2\2\2\u00a2\u008e\3\2\2\2"+
+		"\u00a2\u0096\3\2\2\2\u00a2\u009b\3\2\2\2\u00a2\u009d\3\2\2\2\u00a2\u009f"+
+		"\3\2\2\2\u00a3\17\3\2\2\2\u00a4\u00a5\5\22\n\2\u00a5\u00af\7\33\2\2\u00a6"+
 		"\u00a7\5\26\f\2\u00a7\u00a8\7\36\2\2\u00a8\u00aa\3\2\2\2\u00a9\u00a6\3"+
 		"\2\2\2\u00aa\u00ad\3\2\2\2\u00ab\u00a9\3\2\2\2\u00ab\u00ac\3\2\2\2\u00ac"+
 		"\u00ae\3\2\2\2\u00ad\u00ab\3\2\2\2\u00ae\u00b0\5\26\f\2\u00af\u00ab\3"+

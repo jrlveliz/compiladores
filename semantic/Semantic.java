@@ -9,8 +9,8 @@ public class Semantic{
 	public Semantic(Ast ast1){
 		sStage = "semantic"; // Who am I?
 
-		Log.write("stage: [semantic]");
-		System.out.println("stage: [semantic]");
+		//Log.write("stage: [semantic]");
+		//System.out.println("stage: [semantic]");
 		Debug.print("debug: [semantic]", sStage);
 
 		// Verificamos si hasta aquí tiene que llegar

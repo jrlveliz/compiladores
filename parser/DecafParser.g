@@ -8,14 +8,12 @@ options{
 	tokenVocab=DecafLexer;
 }
 
-@members {
-    public void displayRecognitionError(String[] tokenNames, RecognitionException e) {
-        String hdr = getErrorHeader(e);
-        String msg = getErrorMessage(e, tokenNames);
-        // Now do something with hdr and msg...
 
-		System.out.println(msg);
-    }
+
+@members {
+    public void emitErrorMessage(String msg) {
+        System.err.println(msg);
+    }
 }
 
 /* ***************************** Tipos de Variables ***************************** */
@@ -40,7 +38,7 @@ type 				:	INT | BOOLEAN
 statement			:	location ASSIGN_OP expr SEMIC
 					|	method_call SEMIC
 					|	IF	LPAR expr RPAR block ( ELSE block )?
-					|	FOR ID EQUAL expr COMMA expr block
+					|	FOR ID ASSIGN expr COMMA expr block
 					|	RETURN ( expr )? SEMIC
 					| 	BREAK SEMIC
 					| 	CONTINUE SEMIC

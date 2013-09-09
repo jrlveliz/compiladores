@@ -10,8 +10,8 @@ public class Irt{
 	public Irt(Semantic semantic1){
 		sStage = "irt"; // Who am I?
 
-		Log.write("stage: [irt]");
-		System.out.println("stage: [irt]");
+		//Log.write("stage: [irt]");
+		//System.out.println("stage: [irt]");
 		Debug.print("debug: [irt]", sStage);
 
 		if(Debug.optimization.equals("algebraic")){
