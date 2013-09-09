@@ -25,7 +25,7 @@ public class Scanner{
 			try {
 				DecafLexer lexer = new DecafLexer(new ANTLRFileStream(sFileName));
 				Token tk = lexer.nextToken();
-				String sOut = "Línea\t\t" + "Token\t\t" + "Lexema\t\t\n";
+				String sOut = "Linea\t\t" + "Token\t\t" + "Lexema\t\t\n";
 
 				while(tk.getType() != Token.EOF){
 

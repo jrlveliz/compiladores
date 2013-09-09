@@ -1,6 +1,0 @@
-class Program{
-	int i;
-	void metodo1(){
-		i=1;
-	}
-}

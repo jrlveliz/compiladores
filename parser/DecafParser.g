@@ -35,7 +35,7 @@ var_decl			:	type (ID COMMA)* ID SEMIC
 type 				:	INT | BOOLEAN
 						{CC4Parser.detectRule("TYPE RULE");};
 
-statement			:	location ASSIGN_OP expr SEMIC
+statement			:	location assing_op expr SEMIC
 					|	method_call SEMIC
 					|	IF	LPAR expr RPAR block ( ELSE block )?
 					|	FOR ID ASSIGN expr COMMA expr block
@@ -57,11 +57,18 @@ location			:	ID
 
 expr				:	location
 					|	method_call
-					|	LITERAL
-					|	expr BIN_OP expr 
+					|	literal
+					|	expr bin_op expr 
 					| 	SUBS expr 
 					| 	NOT expr
 					| 	LPAR expr RPAR
 						{CC4Parser.detectRule("EXPRESION RULE");};
 
 callout_arg			:	expr | STRING_LIT;
+
+bin_op				:	ARITH_OP | rel_op | eq_op | cond_op;
+assing_op			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
+cond_op				:	AND | OR;
+rel_op				:	GREATER | LESS | GTOE | LTOE;
+eq_op				:	EQUAL | NOT_EQUAL;
+literal 			:	INT_LIT | CHAR_LIT | BOOL_LIT;

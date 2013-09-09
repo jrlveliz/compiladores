@@ -9,23 +9,21 @@ package compiler.scanner;
 /* *****************************                    ***************************** */
 
 /* ***************************** Tipos de Variables ***************************** */
-LITERAL		:	INT_LIT | CHAR_LIT | BOOLEAN_LIT;
-INT_LIT		: 	(DIGIT)+ | HEX_LIT;
-HEX_LIT		: 	'0x' HEXDIG+;
-CHAR_LIT	: 	'\'' (CHAR) '\'';
-STRING_LIT	: 	'\"' (CHAR)* '\"';
-BOOLEAN_LIT	: 	(BOOL);
 
-PROGRAM				: 'Program';
+INT_LIT			:	(DIGIT)+ | HEX_LIT;
+CHAR_LIT		:	'\'' (CHAR) '\'';
+STRING_LIT		:	'\"' (CHAR)* '\"';
+BOOL_LIT		:	('true' | 'false');
 /* *****************************                    ***************************** */
 
 /* *****************************       Ignorar      ***************************** */
-COMMENT: 		'//' ~('\n' | '\r') '\r'? '\n' 	{skip();};
-WHITESPACE :	(' '| '\t'|'\n'|'\r')   		{skip();};
-NEWLINE:		'\n'							{skip();};
+COMMENT			:	'//' (CHAR | '\'')* '\r'? '\n' 	{skip();};
+WHITESPACE 		:	(' '| '\t'|'\n'|'\r')   		{skip();};
+NEWLINE			:	'\n'							{skip();};
 /* *****************************                    ***************************** */
 
 /* *****************************      Keywords      ***************************** */
+PROGRAM			:	'Program';
 BREAK			:	'break';
 IF				:	'if';
 FOR				:	'for';
@@ -43,14 +41,14 @@ ID				: 	('_' | ALPHA)(ALPHA | DIGIT | '_')*;
 /* *****************************                    ***************************** */
 
 /* *****************************      Símbolos      ***************************** */
-LPAR	: '(';
-RPAR	: ')';
-SEMIC	: ';';
-COMMA	: ',';
-LBRACK	: '[';
-RBRACK	: ']';
-LBRACE  : '{';
-RBRACE	: '}';
+LPAR			:	'(';
+RPAR			:	')';
+SEMIC			:	';';
+COMMA			:	',';
+LBRACK			:	'[';
+RBRACK			:	']';
+LBRACE 			:	'{';
+RBRACE			:	'}';
 /* *****************************                    ***************************** */
 
 /* *****************************     Operadores     ***************************** */
@@ -64,33 +62,27 @@ LTOE		:	'<=';
 
 // Booleanos
 AND			:	'&&';
-OR			:	'||';
+OR 			:	'||';
 NOT 		:	'!';
 
 // Artiméticos
-PLUS 		:	'+';
-SUBS		:	'-';
-TIMES		:	'*';
-DIV			:	'/';
-MOD			:	'%';
+SUBS				:	'-';
+ARITH_OP			:	PLUS | TIMES | DIV | MOD;
 
 // De Asignación
-ASSIGN_OP			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
 ASSIGN				:	'=';
 ASSIGN_PLUS			:	'+=';
 ASSIGN_SUBS			:	'-=';
 /* *****************************                    ***************************** */
 
-BIN_OP				:	ARITH_OP | REL_OP | EQ_OP | COND_OP;
-
-fragment ARITH_OP	:	PLUS | SUBS | TIMES | DIV | MOD;
-fragment COND_OP	:	AND | OR;
-fragment REL_OP		:	GREATER | LESS | GTOE | LTOE;
-fragment EQ_OP		:	EQUAL | NOT_EQUAL;
-
-fragment BOOL 		: ('true' | 'false');
 fragment ALPHA		: ('a'..'z' | 'A'..'Z');
+fragment HEX_LIT	: '0x' HEXDIG+;
 fragment HEXDIG		: (DIGIT | ('a'..'f'|'A'..'F'));
 fragment DIGIT		: ('0'..'9');
 fragment CHAR		: ' '..'!' | '#'..'&' | '('..'[' | ']'..'~' | SEQUENCE;
 fragment SEQUENCE	: '\\\\' | '\\"'| '\\\'' | '\\n' | '\\t';
+
+fragment PLUS 		:	'+';
+fragment TIMES		:	'*';
+fragment DIV		:	'/';
+fragment MOD		:	'%';
