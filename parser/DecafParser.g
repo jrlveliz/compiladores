@@ -18,12 +18,15 @@ options{
 
 /* ***************************** Tipos de Variables ***************************** */
 program				:	CLASS PROGRAM LBRACE (field_decl)* (method_decl)* RBRACE 
-						{CC4Parser.detectRule("PROGRAM RULE");};
+						{CC4Parser.detectRule("PROGRAM RULE");} #class;
 
-field_decl			:	type ( ( (ID | ID LBRACK  INT_LIT RBRACK)  COMMA)*  (ID | ID LBRACK  INT_LIT RBRACK)  ) SEMIC
-						{CC4Parser.detectRule("FIELD DECLARATION RULE");};
+field_decl			:	type ((var_decl_name  COMMA)*  var_decl_name) SEMIC 
+						{CC4Parser.detectRule("FIELD DECLARATION RULE");} #fieldDecl;
 
-method_decl			:	(type | VOID) ID LPAR ((type ID COMMA)* (type ID) )?	RPAR block
+var_decl_name		:	ID 
+					| 	ID LBRACK  INT_LIT RBRACK #varDeclName;
+
+method_decl			:	(type | VOID) ID LPAR ((type ID COMMA)* (type ID))?	RPAR block
 						{CC4Parser.detectRule("METHOD DECLARATION RULE");};
 
 block 				:	LBRACE (var_decl)* (statement)*	RBRACE
