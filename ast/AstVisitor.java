@@ -24,11 +24,6 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 	}
 	
 	@Override
-	public Node visitFloat(DecafParser.FloatContext ctx){
-		return new FloatLiteral(ctx.FLOAT().getText());
-	}
-	
-	@Override
 	public Node visitParen(DecafParser.ParenContext ctx){
 		return visit(ctx.exp());
 	}

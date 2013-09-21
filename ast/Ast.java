@@ -13,6 +13,7 @@ public class Ast{
 		//System.out.println("stage: [ast]");
 		Debug.print("debug: [ast]", sStage);
 
+		ParseTree tree = parser1.parse();
 		// Verificamos si hasta aquí tiene que llegar
 		if(!Debug.target.equals(sStage)){
 			Semantic semantic1 = new Semantic(this);
