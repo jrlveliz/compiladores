@@ -95,6 +95,19 @@ public class Compiler{
 				File f = new File(options[5]);
 				if(f.exists()) {
 					Scanner scanner1 = new Scanner(options[5]);
+					CC4Parser parser1 = new CC4Parser(scanner1);
+					Ast ast1 = new Ast(parser1);
+					Semantic semantic1 = new Semantic();
+
+					if(Debug.target.equals("scan")){
+						scanner1.scan();
+					}else if(Debug.target.equals("parse"))
+						parser1.parse();
+					}else if(Debug.target.equals("ast")){
+						ast1.start();
+					}else if(Debug.target.equals("semantic")){
+
+					}
 				} else {
 					Log.write("Archivo de entrada no existe");
 					System.out.println("Archivo de entrada no existe");

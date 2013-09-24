@@ -8,35 +8,28 @@ import compiler.parser.DecafParserBaseVisitor;
 public class AstVisitor extends DecafParserBaseVisitor<Node>{
 	
 	@Override
-	public Node visitLine(DecafParser.LineContext ctx){
+	public Node visitClass(DecafParser.ClassContext ctx){
 		Root root = new Root();
-		List<DecafParser.ExpContext> list = ctx.exp();
-		
-		for(DecafParser.ExpContext e : list){
-			root.add(visit(e));
+		List<DecafParser.Field_declContext> fieldList = ctx.field_decl();
+
+		for(DecafParser.Field_declContext field : fieldList){
+			root.add(visit(field));
 		}
+
+		List<DecafParser.Method_declContext> methodList = ctx.method_decl();
+
+		for(DecafParser.Method_declContext method : methodList){
+			root.add(visit(method));
+		}
+
 		return root;
 	}
-	
+
 	@Override
-	public Node visitInt(DecafParser.IntContext ctx){
-		return new IntLiteral(ctx.INTEGER().getText());
-	}
-	
-	@Override
-	public Node visitParen(DecafParser.ParenContext ctx){
-		return visit(ctx.exp());
-	}
-	
-	@Override
-	public Node visitPlusMinus(DecafParser.PlusMinusContext ctx){
-		TerminalNode op = ctx.MINUS() == null ? ctx.PLUS() : ctx.MINUS();
-		return new BinOp(op.getText(), visit(ctx.exp(0)), visit(ctx.exp(1)));
-	}
-	
-	@Override
-	public Node visitTimesDiv(DecafParser.TimesDivContext ctx){
-		TerminalNode op = ctx.DIV() == null ? ctx.TIMES() : ctx.DIV();
-		return new BinOp(op.getText(), visit(ctx.exp(0)), visit(ctx.exp(1)));
+	public Node visitField_decl(DecafParser.Field_declContext ctx){
+		DecafParser.TypeContext type = ctx.type();
+
+		
+		return null;
 	}
 }

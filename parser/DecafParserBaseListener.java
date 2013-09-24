@@ -188,6 +188,32 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterParametros(@NotNull DecafParser.ParametrosContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitParametros(@NotNull DecafParser.ParametrosContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterCallout_arg(@NotNull DecafParser.Callout_argContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -227,13 +253,13 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterFieldDecl(@NotNull DecafParser.FieldDeclContext ctx) { }
+	@Override public void enterField_decl(@NotNull DecafParser.Field_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitFieldDecl(@NotNull DecafParser.FieldDeclContext ctx) { }
+	@Override public void exitField_decl(@NotNull DecafParser.Field_declContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

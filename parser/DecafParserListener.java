@@ -154,6 +154,28 @@ public interface DecafParserListener extends ParseTreeListener {
 	void exitStatement(@NotNull DecafParser.StatementContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link DecafParser#list_var_decl_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DecafParser#list_var_decl_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link DecafParser#parametros}.
+	 * @param ctx the parse tree
+	 */
+	void enterParametros(@NotNull DecafParser.ParametrosContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DecafParser#parametros}.
+	 * @param ctx the parse tree
+	 */
+	void exitParametros(@NotNull DecafParser.ParametrosContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link DecafParser#callout_arg}.
 	 * @param ctx the parse tree
 	 */
@@ -187,15 +209,15 @@ public interface DecafParserListener extends ParseTreeListener {
 	void exitMethod_call(@NotNull DecafParser.Method_callContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link DecafParser#fieldDecl}.
+	 * Enter a parse tree produced by {@link DecafParser#field_decl}.
 	 * @param ctx the parse tree
 	 */
-	void enterFieldDecl(@NotNull DecafParser.FieldDeclContext ctx);
+	void enterField_decl(@NotNull DecafParser.Field_declContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DecafParser#fieldDecl}.
+	 * Exit a parse tree produced by {@link DecafParser#field_decl}.
 	 * @param ctx the parse tree
 	 */
-	void exitFieldDecl(@NotNull DecafParser.FieldDeclContext ctx);
+	void exitField_decl(@NotNull DecafParser.Field_declContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link DecafParser#cond_op}.

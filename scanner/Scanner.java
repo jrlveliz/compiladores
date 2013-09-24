@@ -21,6 +21,8 @@ public class Scanner{
 
 		if(!Debug.target.equals(sStage)){
 			CC4Parser parser1 = new CC4Parser(this);
+
+			parser1.parse();
 		}else{
 			try {
 				DecafLexer lexer = new DecafLexer(new ANTLRFileStream(sFileName));

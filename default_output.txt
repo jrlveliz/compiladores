@@ -1,4 +1,0 @@
-Linea		Token		Lexema		
-2		INT_LIT		0x1
-
-

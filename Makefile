@@ -10,10 +10,11 @@ DecafLexer.class: scanner/DecafLexer.java
 	javac scanner/DecafLexer.java
 
 DecafParser.java: parser/DecafParser.g
-	java -jar /usr/local/lib/antlr-4.1-complete.jar -lib "scanner/" "parser/DecafParser.g"
+	java -jar /usr/local/lib/antlr-4.1-complete.jar -visitor -lib "scanner/" "parser/DecafParser.g"
 
 DecafParser.class: parser/DecafParser.java
 	javac parser/DecafParser.java
+	javac parser/DecafParserBaseVisitor.java
 
 Scanner.class: scanner/Scanner.java
 	javac scanner/Scanner.java
