@@ -1,5 +1,8 @@
 import compiler.lib.*;
 import compiler.scanner.*;
+import compiler.parser.*;
+import compiler.ast.*;
+import compiler.semantic.*;
 import java.io.*;
 
 public class Compiler{
@@ -97,11 +100,11 @@ public class Compiler{
 					Scanner scanner1 = new Scanner(options[5]);
 					CC4Parser parser1 = new CC4Parser(scanner1);
 					Ast ast1 = new Ast(parser1);
-					Semantic semantic1 = new Semantic();
+					Semantic semantic1 = new Semantic(ast1);
 
 					if(Debug.target.equals("scan")){
 						scanner1.scan();
-					}else if(Debug.target.equals("parse"))
+					}else if(Debug.target.equals("parse")){
 						parser1.parse();
 					}else if(Debug.target.equals("ast")){
 						ast1.start();

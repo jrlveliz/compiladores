@@ -17,6 +17,9 @@ public class Scanner{
 
 		//Log.write("stage: [scanner]");
 		//System.out.println("stage: [scanner]");
+	}
+
+	public void Scan(){
 		Debug.print("debug: [scanner]", sStage);
 
 		if(!Debug.target.equals(sStage)){
