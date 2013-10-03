@@ -100,7 +100,11 @@ public class Compiler{
 					Scanner scanner1 = new Scanner(options[5]);
 					CC4Parser parser1 = new CC4Parser(scanner1);
 					Ast ast1 = new Ast(parser1);
+<<<<<<< HEAD
 					Semantic semantic1 = new Semantic(ast1);
+=======
+					//Semantic semantic1 = new Semantic();
+>>>>>>> 500ae45439c389c80e9456bc2cf952f4ca192675
 
 					if(Debug.target.equals("scan")){
 						scanner1.scan();
@@ -109,7 +113,7 @@ public class Compiler{
 					}else if(Debug.target.equals("ast")){
 						ast1.start();
 					}else if(Debug.target.equals("semantic")){
-
+						semantic1.
 					}
 				} else {
 					Log.write("Archivo de entrada no existe");

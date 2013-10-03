@@ -1,4 +1,4 @@
-// Generated from parser/DecafParser.g by ANTLR 4.1
+// Generated from parser\DecafParser.g by ANTLR 4.1
 
 package compiler.parser;
 

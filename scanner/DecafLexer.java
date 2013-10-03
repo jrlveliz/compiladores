@@ -1,4 +1,4 @@
-// Generated from scanner/DecafLexer.g by ANTLR 4.1
+// Generated from scanner\DecafLexer.g by ANTLR 4.1
 
 package compiler.scanner;
 
