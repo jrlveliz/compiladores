@@ -20,10 +20,8 @@ options{
 program				:	CLASS PROGRAM LBRACE (field_decl)* (method_decl)* RBRACE 
 						{CC4Parser.detectRule("PROGRAM RULE");} #class;
 
-field_decl			:	type (list_var_decl_name) SEMIC 
+field_decl			:	type (var_decl_name  COMMA)*  var_decl_name SEMIC 
 						{CC4Parser.detectRule("FIELD DECLARATION RULE");};
-
-list_var_decl_name	:	(var_decl_name  COMMA)*  var_decl_name;
 
 var_decl_name       :	ID #varDeclID
 					| 	ID LBRACK  INT_LIT RBRACK #varDeclArray;

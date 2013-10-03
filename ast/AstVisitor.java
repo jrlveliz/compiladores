@@ -28,8 +28,18 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 	@Override
 	public Node visitField_decl(DecafParser.Field_declContext ctx){
 		DecafParser.TypeContext type = ctx.type();
+		Field field = new Field(type);
+
+		List<DecafParser.Var_decl_nameContext> varList = ctx.var_decl_name();
+
+		for(DecafParser.Var_decl_nameContext variable : varList){
+			field.add(visit(variable))
+		}
 
 		
-		return null;
+		return field;
 	}
+
+	@Override
+	public Node visitField_decl(DecafParser.Field_declContext ctx)
 }

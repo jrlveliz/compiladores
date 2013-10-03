@@ -1,12 +1,19 @@
 package compiler.ast;
 
+import java.util.List;
+import java.util.LinkedList;
+
 class Field extends Node{
 	private String type;
-	private Node var_list;
+	private List<String> var_list;
 
-	public Field(String type, Node var_list){
+	public Field(String type){
 		this.type = type;
-		this.var_list = var_list;
 	}
 
+	public void add(String vars){
+		var_list.add(vars)
+	}
+
+	
 }
