@@ -110,7 +110,7 @@ public class Compiler{
 					}else if(Debug.target.equals("ast")){
 						ast1.start();
 					}else if(Debug.target.equals("semantic")){
-						semantic1.
+						semantic1.start();
 					}
 				} else {
 					Log.write("Archivo de entrada no existe");

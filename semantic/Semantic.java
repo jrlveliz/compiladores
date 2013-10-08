@@ -18,4 +18,8 @@ public class Semantic{
 			Irt irt1 = new Irt(this);
 		}
 	}
+
+	public void start(){
+
+	}
 }

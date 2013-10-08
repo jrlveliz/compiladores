@@ -19,7 +19,7 @@ public class Scanner{
 		//System.out.println("stage: [scanner]");
 	}
 
-	public void Scan(){
+	public void scan(){
 		Debug.print("debug: [scanner]", sStage);
 
 		if(!Debug.target.equals(sStage)){
@@ -28,7 +28,7 @@ public class Scanner{
 			parser1.parse();
 		}else{
 			try {
-				DecafLexer lexer = new DecafLexer(new ANTLRFileStream(sFileName));
+				DecafLexer lexer = new DecafLexer(new ANTLRFileStream(sInputFile));
 				Token tk = lexer.nextToken();
 				String sOut = "Linea\t\t" + "Token\t\t" + "Lexema\t\t\n";
 
