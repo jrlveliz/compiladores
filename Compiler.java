@@ -108,7 +108,8 @@ public class Compiler{
 					}else if(Debug.target.equals("parse")){
 						parser1.parse();
 					}else if(Debug.target.equals("ast")){
-						ast1.start();
+						parser1.parse();
+						ast1.start().print("");
 					}else if(Debug.target.equals("semantic")){
 						semantic1.start();
 					}

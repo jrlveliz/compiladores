@@ -36,10 +36,9 @@ public class CC4Parser{
 			tokens = new CommonTokenStream(lexer);
 			parser = new DecafParser(tokens);
 
-			parser.program();
+			tree = parser.program();
 		}
 
-		tree = parser.program();
 		return tree;
 	}
 

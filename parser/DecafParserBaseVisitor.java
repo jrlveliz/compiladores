@@ -1,4 +1,4 @@
-// Generated from parser\DecafParser.g by ANTLR 4.1
+// Generated from parser/DecafParser.g by ANTLR 4.1
 
 package compiler.parser;
 
@@ -76,14 +76,6 @@ public class DecafParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitVarDeclID(@NotNull DecafParser.VarDeclIDContext ctx) { return visitChildren(ctx); }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.
-	 */
 	@Override public T visitVar_decl(@NotNull DecafParser.Var_declContext ctx) { return visitChildren(ctx); }
 
 	/**
@@ -93,14 +85,6 @@ public class DecafParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitType(@NotNull DecafParser.TypeContext ctx) { return visitChildren(ctx); }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.
-	 */
-	@Override public T visitVarDeclArray(@NotNull DecafParser.VarDeclArrayContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -124,7 +108,7 @@ public class DecafParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVar_decl_name(@NotNull DecafParser.Var_decl_nameContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}

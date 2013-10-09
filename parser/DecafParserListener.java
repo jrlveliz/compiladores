@@ -1,4 +1,4 @@
-// Generated from parser\DecafParser.g by ANTLR 4.1
+// Generated from parser/DecafParser.g by ANTLR 4.1
 
 package compiler.parser;
 
@@ -88,17 +88,6 @@ public interface DecafParserListener extends ParseTreeListener {
 	void exitBin_op(@NotNull DecafParser.Bin_opContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link DecafParser#varDeclID}.
-	 * @param ctx the parse tree
-	 */
-	void enterVarDeclID(@NotNull DecafParser.VarDeclIDContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DecafParser#varDeclID}.
-	 * @param ctx the parse tree
-	 */
-	void exitVarDeclID(@NotNull DecafParser.VarDeclIDContext ctx);
-
-	/**
 	 * Enter a parse tree produced by {@link DecafParser#var_decl}.
 	 * @param ctx the parse tree
 	 */
@@ -119,17 +108,6 @@ public interface DecafParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitType(@NotNull DecafParser.TypeContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DecafParser#varDeclArray}.
-	 * @param ctx the parse tree
-	 */
-	void enterVarDeclArray(@NotNull DecafParser.VarDeclArrayContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DecafParser#varDeclArray}.
-	 * @param ctx the parse tree
-	 */
-	void exitVarDeclArray(@NotNull DecafParser.VarDeclArrayContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link DecafParser#rel_op}.
@@ -154,15 +132,15 @@ public interface DecafParserListener extends ParseTreeListener {
 	void exitStatement(@NotNull DecafParser.StatementContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link DecafParser#list_var_decl_name}.
+	 * Enter a parse tree produced by {@link DecafParser#var_decl_name}.
 	 * @param ctx the parse tree
 	 */
-	void enterList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx);
+	void enterVar_decl_name(@NotNull DecafParser.Var_decl_nameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DecafParser#list_var_decl_name}.
+	 * Exit a parse tree produced by {@link DecafParser#var_decl_name}.
 	 * @param ctx the parse tree
 	 */
-	void exitList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx);
+	void exitVar_decl_name(@NotNull DecafParser.Var_decl_nameContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link DecafParser#parametros}.

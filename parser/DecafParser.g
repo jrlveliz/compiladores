@@ -23,8 +23,8 @@ program				:	CLASS PROGRAM LBRACE (field_decl)* (method_decl)* RBRACE
 field_decl			:	type (var_decl_name  COMMA)*  var_decl_name SEMIC 
 						{CC4Parser.detectRule("FIELD DECLARATION RULE");};
 
-var_decl_name       :	ID #varDeclID
-					| 	ID LBRACK  INT_LIT RBRACK #varDeclArray;
+var_decl_name       :	ID
+					| 	ID LBRACK  INT_LIT RBRACK;
 
 method_decl			:	(type | VOID) ID LPAR (parametros*)?	RPAR block
 						{CC4Parser.detectRule("METHOD DECLARATION RULE");};

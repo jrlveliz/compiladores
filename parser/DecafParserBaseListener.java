@@ -1,4 +1,4 @@
-// Generated from parser\DecafParser.g by ANTLR 4.1
+// Generated from parser/DecafParser.g by ANTLR 4.1
 
 package compiler.parser;
 
@@ -110,19 +110,6 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterVarDeclID(@NotNull DecafParser.VarDeclIDContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitVarDeclID(@NotNull DecafParser.VarDeclIDContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterVar_decl(@NotNull DecafParser.Var_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -143,19 +130,6 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitType(@NotNull DecafParser.TypeContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterVarDeclArray(@NotNull DecafParser.VarDeclArrayContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitVarDeclArray(@NotNull DecafParser.VarDeclArrayContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -188,13 +162,13 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx) { }
+	@Override public void enterVar_decl_name(@NotNull DecafParser.Var_decl_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx) { }
+	@Override public void exitVar_decl_name(@NotNull DecafParser.Var_decl_nameContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

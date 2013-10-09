@@ -1,4 +1,4 @@
-// Generated from parser\DecafParser.g by ANTLR 4.1
+// Generated from parser/DecafParser.g by ANTLR 4.1
 
 package compiler.parser;
 
@@ -63,13 +63,6 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitBin_op(@NotNull DecafParser.Bin_opContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link DecafParser#varDeclID}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVarDeclID(@NotNull DecafParser.VarDeclIDContext ctx);
-
-	/**
 	 * Visit a parse tree produced by {@link DecafParser#var_decl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -82,13 +75,6 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitType(@NotNull DecafParser.TypeContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link DecafParser#varDeclArray}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVarDeclArray(@NotNull DecafParser.VarDeclArrayContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link DecafParser#rel_op}.
@@ -105,11 +91,11 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitStatement(@NotNull DecafParser.StatementContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link DecafParser#list_var_decl_name}.
+	 * Visit a parse tree produced by {@link DecafParser#var_decl_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitList_var_decl_name(@NotNull DecafParser.List_var_decl_nameContext ctx);
+	T visitVar_decl_name(@NotNull DecafParser.Var_decl_nameContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link DecafParser#parametros}.
