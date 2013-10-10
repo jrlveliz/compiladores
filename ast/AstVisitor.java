@@ -51,6 +51,7 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 		TerminalNode voidType = ctx.VOID();
 		TerminalNode methodID = ctx.ID();
 		String sMethodType = "";
+		String sParamType = "";
 
 		if(type == null){
 			sMethodType = voidType.getText();
@@ -60,9 +61,11 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 
 		Method mth = new Method(sMethodType, methodID.getText(), visit(ctx.block()));
 
-		List<DecafParser.ParametrosContext> paramList = ctx.parametros();
+		List<DecafParser.ParametrosContext> paramList = visit(ctx.parametros());
 
-
-
+		for (DecafParser.ParametrosContext parametro : paramList) {
+			sParamType = (type.INT() == null ? type.BOOLEAN().getText() : type.INT().getText());
+			mth.addParam(sParamType, parametro.ID().getText());
+		}
 	}
 }
