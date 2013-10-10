@@ -30,20 +30,3 @@ public class Field extends Node{
 		System.out.println(padding + type + sVarList);
 	}
 }
-
-class Var{
-	public String id;
-	public int length;
-	public String type;
-
-	public Var(String id, int length){
-		type = "ARRAY";
-		this.id = id;
-		this.length = length;
-	}
-
-	public Var(String id){
-		type = "VARIABLE";
-		this.id = id;
-	}
-}

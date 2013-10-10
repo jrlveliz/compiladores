@@ -26,10 +26,12 @@ field_decl			:	type (var_decl_name  COMMA)*  var_decl_name SEMIC
 var_decl_name       :	ID
 					| 	ID LBRACK  INT_LIT RBRACK;
 
-method_decl			:	(type | VOID) ID LPAR (parametros*)?	RPAR block
+method_decl			:	(type | VOID) ID LPAR (parametros)? RPAR block
 						{CC4Parser.detectRule("METHOD DECLARATION RULE");};
 
-parametros			:	(type ID COMMA)* type ID;
+parametros			:	(param_decl COMMA)* param_decl;
+
+param_decl			:	type ID;
 
 block 				:	LBRACE (var_decl)* (statement)*	RBRACE
 						{CC4Parser.detectRule("BLOCK RULE");};

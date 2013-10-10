@@ -240,6 +240,19 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterParam_decl(@NotNull DecafParser.Param_declContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitParam_decl(@NotNull DecafParser.Param_declContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterCond_op(@NotNull DecafParser.Cond_opContext ctx) { }
 	/**
 	 * {@inheritDoc}

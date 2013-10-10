@@ -44,4 +44,25 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 
 		return field;
 	}
+
+	@Override
+	public Node visitMethod_decl(DecafParser.Method_declContext ctx){
+		DecafParser.TypeContext type = ctx.type();
+		TerminalNode voidType = ctx.VOID();
+		TerminalNode methodID = ctx.ID();
+		String sMethodType = "";
+
+		if(type == null){
+			sMethodType = voidType.getText();
+		}else{
+			sMethodType = (type.INT() == null ? type.BOOLEAN().getText() : type.INT().getText());
+		}
+
+		Method mth = new Method(sMethodType, methodID.getText(), visit(ctx.block()));
+
+		List<DecafParser.ParametrosContext> paramList = ctx.parametros();
+
+
+
+	}
 }

@@ -198,6 +198,17 @@ public interface DecafParserListener extends ParseTreeListener {
 	void exitField_decl(@NotNull DecafParser.Field_declContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link DecafParser#param_decl}.
+	 * @param ctx the parse tree
+	 */
+	void enterParam_decl(@NotNull DecafParser.Param_declContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DecafParser#param_decl}.
+	 * @param ctx the parse tree
+	 */
+	void exitParam_decl(@NotNull DecafParser.Param_declContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link DecafParser#cond_op}.
 	 * @param ctx the parse tree
 	 */
