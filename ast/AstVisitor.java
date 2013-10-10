@@ -61,11 +61,13 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 
 		Method mth = new Method(sMethodType, methodID.getText(), visit(ctx.block()));
 
-		List<DecafParser.ParametrosContext> paramList = visit(ctx.parametros());
+		List<DecafParser.Param_declContext> paramList = ctx.parametros().param_decl();
 
-		for (DecafParser.ParametrosContext parametro : paramList) {
-			sParamType = (type.INT() == null ? type.BOOLEAN().getText() : type.INT().getText());
+		for (DecafParser.Param_declContext parametro : paramList) {
+			System.out.println(parametro.ID().getText() + " i " + parametro.type().INT().getText()); 
+			sParamType = (parametro.type().INT().getText() == null ? parametro.type().BOOLEAN().getText() : parametro.type().INT().getText()); //
 			mth.addParam(sParamType, parametro.ID().getText());
 		}
+		return visitChildren(ctx);
 	}
 }

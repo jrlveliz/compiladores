@@ -1,5 +1,8 @@
 package compiler.ast;
 
+import java.util.List;
+import java.util.LinkedList;
+
 class Method extends Node{
 	private String type;
 	private String id;
@@ -15,17 +18,17 @@ class Method extends Node{
 
 
 	public void addParam(String type, String param){
-		param_list.add(new Var(type, param))
+		param_list.add(new Var(type, param));
 	}
 
-	public void print(){
-		String sParmList = "";
+	public void print(String padding){
+		/*String sParmList = "";
 
 		for (Var x : param_list) {
-			sParamList += ", " + (x.style == "PARAMETRO" ? x.type + x.id);
+			sParamList += ", " + x.type + x.id);
 		}
 
-		System.out.println(padding + type + sVarList);
+		System.out.println(padding + type + sParamList);*/
 	}
 
 }

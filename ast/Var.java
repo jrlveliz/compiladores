@@ -1,3 +1,5 @@
+package compiler.ast;
+
 public class Var{
 	public String id;
 	public int length;
