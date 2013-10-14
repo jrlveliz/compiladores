@@ -13,14 +13,12 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 		List<DecafParser.Field_declContext> fieldList = ctx.field_decl();
 
 		for(DecafParser.Field_declContext field : fieldList){
-			root.add(visit(field));
 			root.addField((Field)visit(field));
 		}
 
 		List<DecafParser.Method_declContext> methodList = ctx.method_decl();
 
 		for(DecafParser.Method_declContext method : methodList){
-			root.add(visit(method));
 			root.addMethod((Method)visit(method));
 		}
 
@@ -63,13 +61,8 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 
 		Method mth = new Method(sMethodType, methodID.getText(), visit(ctx.block()));
 
-		List<DecafParser.Param_declContext> paramList = ctx.parametros().param_decl();
 		List<DecafParser.Param_declContext> paramList;
 
-		for (DecafParser.Param_declContext parametro : paramList) {
-			System.out.println(parametro.ID().getText() + " i " + parametro.type().INT().getText()); 
-			sParamType = (parametro.type().INT().getText() == null ? parametro.type().BOOLEAN().getText() : parametro.type().INT().getText()); //
-			mth.addParam(sParamType, parametro.ID().getText());
 		if(ctx.parametros() != null){
 			paramList = ctx.parametros().param_decl();
 		
