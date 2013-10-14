@@ -21,10 +21,10 @@ public class Field extends Node{
 	}
 
 	public void print(String padding){
-		String sVarList = "";
+		String sVarList = " ";
 
 		for (Var x : var_list) {
-			sVarList += ", " + (x.type == "ARRAY" ? x.id + "[" + x.length + "]" : x.id);
+			sVarList += (x.style == "ARRAY" ? x.id + "[" + x.length + "]" : x.id) + ", ";
 		}
 
 		System.out.println(padding + type + sVarList);

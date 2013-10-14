@@ -22,13 +22,16 @@ class Method extends Node{
 	}
 
 	public void print(String padding){
-		/*String sParmList = "";
+		String sParamList = "";
 
 		for (Var x : param_list) {
-			sParamList += ", " + x.type + x.id);
+			sParamList += x.type + " " + x.id + ", ";
 		}
 
-		System.out.println(padding + type + sParamList);*/
+		sParamList.replace(", \0", "\0");
+
+		System.out.println(padding + type + " " + id + "(): " + sParamList);
+		block.print(padding);
 	}
 
 }

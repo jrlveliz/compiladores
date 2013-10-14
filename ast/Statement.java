@@ -3,11 +3,11 @@ package compiler.ast;
 import java.util.List;
 import java.util.LinkedList;
  
-public class Root extends Node{
+public class Statement extends Node{
 	private List<Field> fieldList;
 	private List<Method> methodList; 
 	
-	public Root(){
+	public Statement(){
 		fieldList = new LinkedList<Field>(); // Un field contiene varias variables
 		methodList = new LinkedList<Method>();
 	}
