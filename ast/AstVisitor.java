@@ -91,9 +91,68 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 		List<DecafParser.StatementContext> statementList = ctx.statement();
 
 		for(DecafParser.StatementContext statement : statementList){
+			// System.out.println("statement ast" + statement.location().ID().getText());
 			block.addStatement((Statement)visit(statement));
 		}
 
 		return block;
+	}
+
+	@Override
+	public Node visitAssign(DecafParser.AssignContext ctx){
+		DecafParser.LocationContext loc = ctx.location();
+		DecafParser.Assign_opContext asop = ctx.assing_op();
+		DecafParser.ExprContext expr = ctx.expr();
+
+		return stmnt;
+	}
+
+	@Override
+	public Node visitMethodCall(DecafParser.MethodCallContext ctx){
+		return new Statement("METHOD_CALL");
+	}
+
+	@Override
+	public Node VisitReturn_st(DecafParser.Return_stContext ctx){
+		DecafParser.ExprContext expr = ctx.expr();
+
+		return new Statement("RETURN", expr != null ? visit(expr) : null);
+	}
+
+	@Override
+	public Node VisitContinue_st(DecafParser.Continue_stContext ctx){
+		return new Statement("CONTINUE");
+	}
+
+	@Override
+	public Node visitBreak_st(DecafParser.Break_stContext ctx){
+		return new Statement("BREAK");
+	}
+
+	@Override
+	public Node visitBlock_st(DecafParser.Block_stContext ctx){
+		return visit(ctx.block());
+	}
+
+	@Override
+	public Node visitMethod_call1(DecafParser.Method_call1Context ctx){
+		String sMethodID = ctx.ID().getText();
+		List<DecafParser.ExprContext> exprList = ctx.expr();
+
+		MethodCall mc = new MethodCall(sMethodID);
+		for (DecafParser.ExprContext expr : exprList) {
+			mc.addArg(visit(visit(expr)));
+		}
+	}
+
+	@Override
+	public Node visitMethod_callout(DecafParser.Method_calloutContext ctx){
+		String sCalloutID = ctx.STRING_LIT().getText();
+		List<DecafParser.Callout_ArgContext> callArgList = ctx.callout_arg();
+
+		MethodCall mc = new MethodCall(sMethodID);
+		for (DecafParser.Callout_ArgContext callArg : callArgList) {
+			mc.addArg(visit(visit(callArg)));
+		}
 	}
 }

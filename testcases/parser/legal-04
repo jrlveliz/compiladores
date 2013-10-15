@@ -1,5 +1,6 @@
 class Program {
   void main() {
+  	int kaka;
     a = -3 * 4 / 6 + (F[b+2] - foo());
   }
 }

@@ -66,14 +66,17 @@ OR 			:	'||';
 NOT 		:	'!';
 
 // Artiméticos
-SUBS				:	'-';
-ARITH_OP			:	PLUS | TIMES | DIV | MOD;
+SUBS		:	'-';
+PLUS 		:	'+';
+TIMES		:	'*';
+DIV			:	'/';
+MOD			:	'%';
 
 // De Asignación
 ASSIGN				:	'=';
 ASSIGN_PLUS			:	'+=';
 ASSIGN_SUBS			:	'-=';
-/* *****************************                    ***************************** */
+/******************************                    ***************************** */
 
 fragment ALPHA		: ('a'..'z' | 'A'..'Z');
 fragment HEX_LIT	: '0x' HEXDIG+;
@@ -81,8 +84,3 @@ fragment HEXDIG		: (DIGIT | ('a'..'f'|'A'..'F'));
 fragment DIGIT		: ('0'..'9');
 fragment CHAR		: ' '..'!' | '#'..'&' | '('..'[' | ']'..'~' | SEQUENCE;
 fragment SEQUENCE	: '\\\\' | '\\"'| '\\\'' | '\\n' | '\\t';
-
-fragment PLUS 		:	'+';
-fragment TIMES		:	'*';
-fragment DIV		:	'/';
-fragment MOD		:	'%';

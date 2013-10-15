@@ -30,7 +30,7 @@ class Method extends Node{
 
 		sParamList.replace(", \0", "\0");
 
-		System.out.println(padding + type + " " + id + "(): " + sParamList);
+		System.out.println(padding + type + " " + id + "(): " + (sParamList == "" ? "[NO_PARAM]" : sParamList));
 		block.print(padding);
 	}
 

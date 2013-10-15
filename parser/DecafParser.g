@@ -42,30 +42,28 @@ var_decl			:	type (ID COMMA)* ID SEMIC
 type 				:	INT | BOOLEAN
 						{CC4Parser.detectRule("TYPE RULE");};
 
-statement			:	location assing_op expr SEMIC
-					|	method_call SEMIC
-					|	IF	LPAR expr RPAR block ( ELSE block )?
-					|	FOR ID ASSIGN expr COMMA expr block
-					|	RETURN ( expr )? SEMIC
-					| 	BREAK SEMIC
-					| 	CONTINUE SEMIC
-					| 	block
-						{CC4Parser.detectRule("STATEMENT RULE");};
+statement			:	location assing_op expr SEMIC 				#assign
+					|	method_call SEMIC							#methodCall
+					|	IF	LPAR expr RPAR block ( ELSE block )?	#ifstmnt
+					|	FOR ID ASSIGN expr COMMA expr block 		#forstmnt
+					|	RETURN ( expr )? SEMIC						#return_st
+					| 	BREAK SEMIC									#break_st
+					| 	CONTINUE SEMIC								#continue_st
+					| 	block 										#block_st;
 
-method_call			:	method_name LPAR ((expr COMMA)* expr)? RPAR
-					| 	'callout' LPAR STRING_LIT  (COMMA  (callout_arg COMMA)* callout_arg)? RPAR
-						{CC4Parser.detectRule("METHOD CALL RULE");};
-
-method_name			:	ID;
+method_call			:	ID LPAR ((expr COMMA)* expr)? RPAR		#method_call1
+					| 	'callout' LPAR STRING_LIT  (COMMA  (callout_arg COMMA)* callout_arg)? RPAR	#method_callout;
 
 location			:	ID
 					| 	ID LBRACK expr RBRACK
 						{CC4Parser.detectRule("LOCATION RULE");};
 
-expr				:	location
-					|	method_call
+expr				:	location 				#location
+					|	method_call				
 					|	literal
-					|	expr bin_op expr 
+					|	expr mul_div expr
+					|   expr plus_min expr
+					|   expr bin_op expr
 					| 	SUBS expr 
 					| 	NOT expr
 					| 	LPAR expr RPAR
@@ -73,7 +71,9 @@ expr				:	location
 
 callout_arg			:	expr | STRING_LIT;
 
-bin_op				:	ARITH_OP | rel_op | eq_op | cond_op;
+mul_div				:	TIMES | DIV;
+plus_min			:	PLUS | SUBS;
+bin_op				:	rel_op | eq_op | cond_op | MOD;
 assing_op			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
 cond_op				:	AND | OR;
 rel_op				:	GREATER | LESS | GTOE | LTOE;

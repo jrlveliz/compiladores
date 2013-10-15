@@ -22,17 +22,20 @@ public class Block extends Node{
 	
 	public void print(String padding){
 		String sVarList = "";
-		System.out.println("var decl ->");
 
-		for(Var n : varList){
-			sVarList += n.type + " " + n.id + ", ";
+		if(varList.size() > 0){
+			System.out.println("var decl ->");
+
+			for(Var n : varList){
+				sVarList += n.type + " " + n.id + ", ";
+			}
 		}
 
-		System.out.println(sVarList);
+		System.out.println(padding + sVarList);
 
-		for(Statement n : stmntList){
-			System.out.println("var decl ->");
-			n.print(padding + "\t");
+		for(Statement stmnt : stmntList){
+			System.out.println("Statement ->" + stmnt);
+			stmnt.print(padding + "\t");
 		}
 	}
 	

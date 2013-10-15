@@ -1,4 +1,4 @@
-// Generated from parser\DecafParser.g by ANTLR 4.1
+// Generated from parser/DecafParser.g by ANTLR 4.1
 
 package compiler.parser;
 
@@ -14,11 +14,25 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link DecafParser#assing_op}.
+	 * Visit a parse tree produced by {@link DecafParser#assign}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAssing_op(@NotNull DecafParser.Assing_opContext ctx);
+	T visitAssign(@NotNull DecafParser.AssignContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#continue_st}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitContinue_st(@NotNull DecafParser.Continue_stContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#methodCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodCall(@NotNull DecafParser.MethodCallContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link DecafParser#location}.
@@ -26,20 +40,6 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLocation(@NotNull DecafParser.LocationContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link DecafParser#method_name}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMethod_name(@NotNull DecafParser.Method_nameContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link DecafParser#class}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitClass(@NotNull DecafParser.ClassContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link DecafParser#block}.
@@ -63,13 +63,6 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitBin_op(@NotNull DecafParser.Bin_opContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link DecafParser#var_decl}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVar_decl(@NotNull DecafParser.Var_declContext ctx);
-
-	/**
 	 * Visit a parse tree produced by {@link DecafParser#type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -84,13 +77,6 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitRel_op(@NotNull DecafParser.Rel_opContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link DecafParser#statement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStatement(@NotNull DecafParser.StatementContext ctx);
-
-	/**
 	 * Visit a parse tree produced by {@link DecafParser#var_decl_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -98,11 +84,11 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitVar_decl_name(@NotNull DecafParser.Var_decl_nameContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link DecafParser#parametros}.
+	 * Visit a parse tree produced by {@link DecafParser#forstmnt}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitParametros(@NotNull DecafParser.ParametrosContext ctx);
+	T visitForstmnt(@NotNull DecafParser.ForstmntContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link DecafParser#callout_arg}.
@@ -112,18 +98,102 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitCallout_arg(@NotNull DecafParser.Callout_argContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link DecafParser#eq_op}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEq_op(@NotNull DecafParser.Eq_opContext ctx);
-
-	/**
 	 * Visit a parse tree produced by {@link DecafParser#method_call}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMethod_call(@NotNull DecafParser.Method_callContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#return_st}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturn_st(@NotNull DecafParser.Return_stContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#cond_op}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCond_op(@NotNull DecafParser.Cond_opContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#mul_div}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMul_div(@NotNull DecafParser.Mul_divContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#assing_op}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssing_op(@NotNull DecafParser.Assing_opContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#method_name}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethod_name(@NotNull DecafParser.Method_nameContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#class}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitClass(@NotNull DecafParser.ClassContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#var_decl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVar_decl(@NotNull DecafParser.Var_declContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#break_st}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBreak_st(@NotNull DecafParser.Break_stContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#parametros}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParametros(@NotNull DecafParser.ParametrosContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#ifstmnt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfstmnt(@NotNull DecafParser.IfstmntContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#block_st}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlock_st(@NotNull DecafParser.Block_stContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#plus_min}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlus_min(@NotNull DecafParser.Plus_minContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link DecafParser#eq_op}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEq_op(@NotNull DecafParser.Eq_opContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link DecafParser#field_decl}.
@@ -138,13 +208,6 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitParam_decl(@NotNull DecafParser.Param_declContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link DecafParser#cond_op}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCond_op(@NotNull DecafParser.Cond_opContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link DecafParser#literal}.
