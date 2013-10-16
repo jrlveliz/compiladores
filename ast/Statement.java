@@ -5,7 +5,7 @@ import java.util.LinkedList;
  
 public class Statement extends Node{
 	String statementType;
-	Nodo expReturn
+	Node expReturn;
 
 	public Statement(String type){
 		this.statementType = type;
@@ -17,6 +17,8 @@ public class Statement extends Node{
 	}
 
 	public void print(String padding){
+		System.out.println(padding + statementType);
+		expReturn.print(padding);
 	}
 	
 	public void print(){

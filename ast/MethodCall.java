@@ -8,8 +8,8 @@ class MethodCall extends Node{
 	private LinkedList<Node> argList;
 	private String sCallType;
 
-	public Method(String id, String sCallType){
-		this.param_list = new LinkedList<Var>();
+	public MethodCall(String id, String sCallType){
+		this.argList = new LinkedList<Node>();
 		this.id = id;
 		this.sCallType = sCallType;
 	}
@@ -28,7 +28,7 @@ class MethodCall extends Node{
 		System.out.print(padding);
 
 		for (Node arg : argList) {
-			arg.print();
+			arg.print(padding + "\n");
 		}
 	}
 }

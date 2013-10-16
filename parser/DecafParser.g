@@ -42,7 +42,7 @@ var_decl			:	type (ID COMMA)* ID SEMIC
 type 				:	INT | BOOLEAN
 						{CC4Parser.detectRule("TYPE RULE");};
 
-statement			:	location assing_op expr SEMIC 				#assign
+statement			:	location assign_op expr SEMIC 				#assign
 					|	method_call SEMIC							#methodCall
 					|	IF	LPAR expr RPAR block ( ELSE block )?	#ifstmnt
 					|	FOR ID ASSIGN expr COMMA expr block 		#forstmnt
@@ -58,11 +58,11 @@ location			:	ID
 					| 	ID LBRACK expr RBRACK
 						{CC4Parser.detectRule("LOCATION RULE");};
 
-expr				:	location 				#location
-					|	method_call				
-					|	literal
-					|	expr mul_div expr
-					|   expr plus_min expr
+expr				:	location 			#location_exp
+					|	method_call			#method_exp	
+					|	literal				#literal_exp
+					|	expr mul_div exp 	#mult_div
+					|   expr plus_min expr 	#puls_min
 					|   expr bin_op expr
 					| 	SUBS expr 
 					| 	NOT expr
@@ -74,7 +74,7 @@ callout_arg			:	expr | STRING_LIT;
 mul_div				:	TIMES | DIV;
 plus_min			:	PLUS | SUBS;
 bin_op				:	rel_op | eq_op | cond_op | MOD;
-assing_op			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
+assign_op			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
 cond_op				:	AND | OR;
 rel_op				:	GREATER | LESS | GTOE | LTOE;
 eq_op				:	EQUAL | NOT_EQUAL;

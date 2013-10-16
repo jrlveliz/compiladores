@@ -92,7 +92,7 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 
 		for(DecafParser.StatementContext statement : statementList){
 			// System.out.println("statement ast" + statement.location().ID().getText());
-			block.addStatement((Statement)visit(statement));
+			block.addStatement(visit(statement));
 		}
 
 		return block;
@@ -101,10 +101,12 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 	@Override
 	public Node visitAssign(DecafParser.AssignContext ctx){
 		DecafParser.LocationContext loc = ctx.location();
-		DecafParser.Assign_opContext asop = ctx.assing_op();
+		DecafParser.Assign_opContext asop = ctx.assign_op();
 		DecafParser.ExprContext expr = ctx.expr();
 
-		return stmnt;
+		String sOp = (asop.ASSIGN_PLUS() != null ? asop.ASSIGN_PLUS().getText() : (asop.ASSIGN() != null ? asop.ASSIGN().getText() : asop.ASSIGN_SUBS().getText()));
+
+		return new Assign(visit(loc), sOp, visit(expr));
 	}
 
 	@Override
@@ -113,14 +115,14 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 	}
 
 	@Override
-	public Node VisitReturn_st(DecafParser.Return_stContext ctx){
+	public Node visitReturn_st(DecafParser.Return_stContext ctx){
 		DecafParser.ExprContext expr = ctx.expr();
 
-		return new Statement("RETURN", expr != null ? visit(expr) : null);
+		return new Statement(expr != null ? visit(expr) : null);
 	}
 
 	@Override
-	public Node VisitContinue_st(DecafParser.Continue_stContext ctx){
+	public Node visitContinue_st(DecafParser.Continue_stContext ctx){
 		return new Statement("CONTINUE");
 	}
 
@@ -139,20 +141,52 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 		String sMethodID = ctx.ID().getText();
 		List<DecafParser.ExprContext> exprList = ctx.expr();
 
-		MethodCall mc = new MethodCall(sMethodID);
+		MethodCall mc = new MethodCall(sMethodID, "METHOD");
 		for (DecafParser.ExprContext expr : exprList) {
-			mc.addArg(visit(visit(expr)));
+			mc.addArg(visit(expr));
 		}
+
+		return mc;
 	}
 
 	@Override
 	public Node visitMethod_callout(DecafParser.Method_calloutContext ctx){
 		String sCalloutID = ctx.STRING_LIT().getText();
-		List<DecafParser.Callout_ArgContext> callArgList = ctx.callout_arg();
+		List<DecafParser.Callout_argContext> callArgList = ctx.callout_arg();
 
-		MethodCall mc = new MethodCall(sMethodID);
-		for (DecafParser.Callout_ArgContext callArg : callArgList) {
-			mc.addArg(visit(visit(callArg)));
+		MethodCall mc = new MethodCall(sCalloutID, "CALLOUT");
+		for (DecafParser.Callout_argContext callArg : callArgList) {
+			mc.addArg(visit(callArg));
 		}
+
+		return mc;
+	}
+
+	@Override
+	public Node visitLocation(DecafParser.LocationContext ctx){
+		TerminalNode locID = ctx.ID();
+		DecafParser.ExprContext expr = ctx.expr();
+		Var loc;
+
+		if(expr != null)
+			loc = new Var(locID.getText(), visit(expr));
+		else
+			loc = new Var(locID.getText());
+
+		return loc;
+	}
+
+	@Override
+	public Node visitCallout_arg(DecafParser.Callout_argContext ctx){
+		DecafParser.ExprContext expr = ctx.expr();
+		TerminalNode strLit = ctx.STRING_LIT();
+		Node arg;
+
+		if(expr == null)
+			arg = new Var(strLit.getText());
+		else
+			arg = visit(expr);
+
+		return arg;
 	}
 }

@@ -108,7 +108,7 @@ public class DecafParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitCallout_arg(@NotNull DecafParser.Callout_argContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMethod_callout(@NotNull DecafParser.Method_calloutContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -116,7 +116,7 @@ public class DecafParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitMethod_call(@NotNull DecafParser.Method_callContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCallout_arg(@NotNull DecafParser.Callout_argContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -141,22 +141,6 @@ public class DecafParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitMul_div(@NotNull DecafParser.Mul_divContext ctx) { return visitChildren(ctx); }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.
-	 */
-	@Override public T visitAssing_op(@NotNull DecafParser.Assing_opContext ctx) { return visitChildren(ctx); }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.
-	 */
-	@Override public T visitMethod_name(@NotNull DecafParser.Method_nameContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -189,6 +173,14 @@ public class DecafParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitParametros(@NotNull DecafParser.ParametrosContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitMethod_call1(@NotNull DecafParser.Method_call1Context ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -245,6 +237,14 @@ public class DecafParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitLiteral(@NotNull DecafParser.LiteralContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitAssign_op(@NotNull DecafParser.Assign_opContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}

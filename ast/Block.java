@@ -5,18 +5,18 @@ import java.util.LinkedList;
  
 public class Block extends Node{
 	private List<Var> varList;
-	private List<Statement> stmntList;
+	private List<Node> stmntList;
 	
 	public Block(){
 		varList = new LinkedList<Var>();
-		stmntList = new LinkedList<Statement>();
+		stmntList = new LinkedList<Node>();
 	}
 	
 	public void addVar(Var var){
 		varList.add(var);
 	}
 
-	public void addStatement(Statement stmnt){
+	public void addStatement(Node stmnt){
 		stmntList.add(stmnt);
 	}
 	
@@ -33,8 +33,7 @@ public class Block extends Node{
 
 		System.out.println(padding + sVarList);
 
-		for(Statement stmnt : stmntList){
-			System.out.println("Statement ->" + stmnt);
+		for(Node stmnt : stmntList){
 			stmnt.print(padding + "\t");
 		}
 	}

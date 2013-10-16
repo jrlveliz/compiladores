@@ -162,6 +162,19 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterMethod_callout(@NotNull DecafParser.Method_calloutContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitMethod_callout(@NotNull DecafParser.Method_calloutContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterCallout_arg(@NotNull DecafParser.Callout_argContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -169,19 +182,6 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitCallout_arg(@NotNull DecafParser.Callout_argContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterMethod_call(@NotNull DecafParser.Method_callContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitMethod_call(@NotNull DecafParser.Method_callContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -221,32 +221,6 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitMul_div(@NotNull DecafParser.Mul_divContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterAssing_op(@NotNull DecafParser.Assing_opContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitAssing_op(@NotNull DecafParser.Assing_opContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterMethod_name(@NotNull DecafParser.Method_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitMethod_name(@NotNull DecafParser.Method_nameContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -299,6 +273,19 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitParametros(@NotNull DecafParser.ParametrosContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterMethod_call1(@NotNull DecafParser.Method_call1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitMethod_call1(@NotNull DecafParser.Method_call1Context ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -390,6 +377,19 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitLiteral(@NotNull DecafParser.LiteralContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterAssign_op(@NotNull DecafParser.Assign_opContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitAssign_op(@NotNull DecafParser.Assign_opContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
