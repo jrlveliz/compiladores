@@ -189,4 +189,15 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 
 		return arg;
 	}
+
+	@Override
+	public Node visitLocation_exp(DecafParser.Location_expContext ctx){
+		return visit(ctx.location());
+	}
+
+	@Override
+	public Node visitMethod_exp(DecafParser.Method_expContext ctx){
+		return visit(ctx.method_call()); 
+	}
+
 }
