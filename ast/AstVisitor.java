@@ -114,6 +114,29 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 		return new Statement("METHOD_CALL");
 	}
 
+		@Override
+	public Node visitIfstmnt(DecafParser.IfstmntContext ctx){
+		DecafParser.ExprContext cond = ctx.expr();
+		DecafParser.BlockContext conseq = ctx.block(0);
+		DecafParser.BlockContext altern = ctx.block(1);
+
+		IfNode ifN = new IfNode(visit(cond), visit(conseq), altern != null ? visit(altern) : null);
+
+		return ifN;
+	}
+
+	@Override
+	public Node visitForstmnt(DecafParser.ForstmntContext ctx){
+		String sForID = ctx.ID().getText();
+		DecafParser.ExprContext exp1 = ctx.expr(0);
+		DecafParser.ExprContext exp2 = ctx.expr(1);
+		DecafParser.BlockContext ins = ctx.block();
+
+		ForNode forN = new ForNode(sForID, visit(exp1), visit(exp2), visit(ins));
+
+		return forN;
+	}
+
 	@Override
 	public Node visitReturn_st(DecafParser.Return_stContext ctx){
 		DecafParser.ExprContext expr = ctx.expr();
@@ -199,5 +222,69 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 	public Node visitMethod_exp(DecafParser.Method_expContext ctx){
 		return visit(ctx.method_call()); 
 	}
+
+	@Override
+	public Node visitMultDiv(DecafParser.MultDivContext ctx){
+		TerminalNode op = ctx.TIMES() == null ? ctx.DIV() : ctx.TIMES();
+		return new BinOp(op.getText(), visit(ctx.expr(0)), visit(ctx.expr(1)));
+	}
+
+	@Override
+	public Node visitPlusMin(DecafParser.PlusMinContext ctx){
+		TerminalNode op = ctx.SUBS() == null ? ctx.PLUS() : ctx.SUBS();
+		return new BinOp(op.getText(), visit(ctx.expr(0)), visit(ctx.expr(1)));
+	}
+
+	@Override
+	public Node visitBin_op_exp(DecafParser.Bin_op_expContext ctx){
+		DecafParser.Bin_opContext opCtx = ctx.bin_op();
+		TerminalNode op = (
+			opCtx.LTOE() != null ? opCtx.LTOE() :
+			opCtx.GTOE() != null ? opCtx.GTOE() :
+			opCtx.GREATER() != null ? opCtx.GREATER() :
+			opCtx.LESS() != null ? opCtx.LESS() :
+			opCtx.AND() != null ? opCtx.AND() :
+			opCtx.OR() != null ? opCtx.OR() :
+			opCtx.EQUAL() != null ? opCtx.EQUAL() :	
+			opCtx.NOT_EQUAL() != null ? opCtx.NOT_EQUAL() :
+			opCtx.MOD() != null ? opCtx.MOD() : null
+		);
+
+		return new BinOp(op.getText(), visit(ctx.expr(0)), visit(ctx.expr(1)));
+	}
+
+	@Override 
+	public Node visitLiteral_exp(DecafParser.Literal_expContext ctx){
+		DecafParser.LiteralContext litCtx = ctx.literal();
+
+		TerminalNode lit = (
+			litCtx.INT_LIT() != null ? litCtx.INT_LIT() :
+			litCtx.CHAR_LIT() != null ? litCtx.CHAR_LIT() :
+			litCtx.BOOL_LIT() != null ? litCtx.BOOL_LIT() : null
+			);
+
+		String type = (
+			litCtx.INT_LIT() != null ? "INT" :
+			litCtx.CHAR_LIT() != null ? "CHAR" :
+			litCtx.BOOL_LIT() != null ? "BOOLEAN" : null
+			);
+
+		return new Literal(lit.getText(), type); 
+	}
+
+	@Override
+	public Node visitNeg_sign(DecafParser.Neg_signContext ctx){
+		return new BinOp(ctx.SUBS().getText(), null, visit(ctx.expr()));
+	}
+
+	@Override
+	public Node visitNot_expr(DecafParser.Not_exprContext ctx){
+		return new BinOp(ctx.NOT().getText(), null, visit(ctx.expr()));
+	}
+
+	@Override
+	public Node visitPar_expr(DecafParser.Par_exprContext ctx){
+		return visit(ctx.expr());
+	}	
 
 }

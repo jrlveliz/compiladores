@@ -70,13 +70,6 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitType(@NotNull DecafParser.TypeContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link DecafParser#rel_op}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRel_op(@NotNull DecafParser.Rel_opContext ctx);
-
-	/**
 	 * Visit a parse tree produced by {@link DecafParser#location_exp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -138,13 +131,6 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNeg_sign(@NotNull DecafParser.Neg_signContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link DecafParser#cond_op}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCond_op(@NotNull DecafParser.Cond_opContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link DecafParser#literal_exp}.
@@ -215,13 +201,6 @@ public interface DecafParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBlock_st(@NotNull DecafParser.Block_stContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link DecafParser#eq_op}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEq_op(@NotNull DecafParser.Eq_opContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link DecafParser#field_decl}.

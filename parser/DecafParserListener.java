@@ -99,17 +99,6 @@ public interface DecafParserListener extends ParseTreeListener {
 	void exitType(@NotNull DecafParser.TypeContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link DecafParser#rel_op}.
-	 * @param ctx the parse tree
-	 */
-	void enterRel_op(@NotNull DecafParser.Rel_opContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DecafParser#rel_op}.
-	 * @param ctx the parse tree
-	 */
-	void exitRel_op(@NotNull DecafParser.Rel_opContext ctx);
-
-	/**
 	 * Enter a parse tree produced by {@link DecafParser#location_exp}.
 	 * @param ctx the parse tree
 	 */
@@ -207,17 +196,6 @@ public interface DecafParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitNeg_sign(@NotNull DecafParser.Neg_signContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DecafParser#cond_op}.
-	 * @param ctx the parse tree
-	 */
-	void enterCond_op(@NotNull DecafParser.Cond_opContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DecafParser#cond_op}.
-	 * @param ctx the parse tree
-	 */
-	void exitCond_op(@NotNull DecafParser.Cond_opContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link DecafParser#literal_exp}.
@@ -328,17 +306,6 @@ public interface DecafParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBlock_st(@NotNull DecafParser.Block_stContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link DecafParser#eq_op}.
-	 * @param ctx the parse tree
-	 */
-	void enterEq_op(@NotNull DecafParser.Eq_opContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DecafParser#eq_op}.
-	 * @param ctx the parse tree
-	 */
-	void exitEq_op(@NotNull DecafParser.Eq_opContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link DecafParser#field_decl}.

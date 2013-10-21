@@ -70,9 +70,6 @@ expr				:	location 					#location_exp
 
 callout_arg			:	expr | STRING_LIT;
 
-bin_op				:	rel_op | eq_op | cond_op | MOD;
+bin_op				:	GREATER | LESS | GTOE | LTOE | EQUAL | NOT_EQUAL | AND | OR | MOD;
 assign_op			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
-cond_op				:	AND | OR;
-rel_op				:	GREATER | LESS | GTOE | LTOE;
-eq_op				:	EQUAL | NOT_EQUAL;
 literal 			:	INT_LIT | CHAR_LIT | BOOL_LIT;

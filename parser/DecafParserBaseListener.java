@@ -123,19 +123,6 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterRel_op(@NotNull DecafParser.Rel_opContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitRel_op(@NotNull DecafParser.Rel_opContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterLocation_exp(@NotNull DecafParser.Location_expContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -247,19 +234,6 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitNeg_sign(@NotNull DecafParser.Neg_signContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterCond_op(@NotNull DecafParser.Cond_opContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitCond_op(@NotNull DecafParser.Cond_opContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -390,19 +364,6 @@ public class DecafParserBaseListener implements DecafParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitBlock_st(@NotNull DecafParser.Block_stContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterEq_op(@NotNull DecafParser.Eq_opContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitEq_op(@NotNull DecafParser.Eq_opContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
