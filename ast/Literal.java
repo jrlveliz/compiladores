@@ -23,7 +23,7 @@ public class Literal extends Node{
 	}
 
 	public void print(String padding){
-		System.out.println("LITERAL -> " + lit);
+		System.out.println(padding + "LITERAL -> " + lit);
 	}
 	
 	public void print(){

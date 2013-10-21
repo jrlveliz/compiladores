@@ -29,12 +29,17 @@ public class Block extends Node{
 			for(Var n : varList){
 				sVarList += n.type + " " + n.id + ", ";
 			}
+
+			if(sVarList.endsWith(", "))
+				sVarList = sVarList.replace(", ", "");
+
+			sVarList += ";";
 		}
 
 		System.out.println(padding + sVarList);
 
 		for(Node stmnt : stmntList){
-			stmnt.print(padding + "\t");
+			stmnt.print(padding);
 		}
 	}
 	

@@ -23,12 +23,10 @@ class MethodCall extends Node{
 		if(sCallType == "CALLOUT")
 			System.out.println(padding + sCallType + " " + id);
 		else
-			System.out.println(padding + id);
-
-		System.out.print(padding);
+			System.out.println(padding + id + "()");
 
 		for (Node arg : argList) {
-			arg.print(padding + "\n");
+			arg.print(padding + "\t");
 		}
 	}
 }

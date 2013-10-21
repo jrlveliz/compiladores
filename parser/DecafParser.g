@@ -58,18 +58,18 @@ location			:	ID
 					| 	ID LBRACK expr RBRACK
 						{CC4Parser.detectRule("LOCATION RULE");};
 
-expr				:	location 					#location_exp
-					|	method_call					#method_exp	
-					|	literal						#literal_exp
-					|	expr (TIMES | DIV) expr 	#multDiv
-					|   expr (PLUS | SUBS) expr 	#plusMin
-					|   expr bin_op expr 			#bin_op_exp
-					| 	SUBS expr 					#neg_sign
-					| 	NOT expr 					#not_expr
-					| 	LPAR expr RPAR				#par_expr;
+expr				:	location 						#location_exp
+					|	method_call						#method_exp	
+					|	literal							#literal_exp
+					| 	SUBS expr 						#neg_sign
+					| 	NOT expr 						#not_expr
+					|	expr (TIMES | DIV | MOD) expr 	#multDiv
+					|   expr (PLUS | SUBS) expr 		#plusMin
+					|   expr bin_op expr 				#bin_op_exp
+					| 	LPAR expr RPAR					#par_expr;
 
 callout_arg			:	expr | STRING_LIT;
 
-bin_op				:	GREATER | LESS | GTOE | LTOE | EQUAL | NOT_EQUAL | AND | OR | MOD;
+bin_op				:	LESS | LTOE | GTOE | GREATER | EQUAL | NOT_EQUAL | AND | OR;
 assign_op			:	ASSIGN | ASSIGN_PLUS | ASSIGN_SUBS;
 literal 			:	INT_LIT | CHAR_LIT | BOOL_LIT;

@@ -225,7 +225,7 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 
 	@Override
 	public Node visitMultDiv(DecafParser.MultDivContext ctx){
-		TerminalNode op = ctx.TIMES() == null ? ctx.DIV() : ctx.TIMES();
+		TerminalNode op = ctx.TIMES() != null ? ctx.TIMES() : ctx.DIV() != null ? ctx.DIV() : ctx.MOD();
 		return new BinOp(op.getText(), visit(ctx.expr(0)), visit(ctx.expr(1)));
 	}
 
@@ -246,8 +246,7 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 			opCtx.AND() != null ? opCtx.AND() :
 			opCtx.OR() != null ? opCtx.OR() :
 			opCtx.EQUAL() != null ? opCtx.EQUAL() :	
-			opCtx.NOT_EQUAL() != null ? opCtx.NOT_EQUAL() :
-			opCtx.MOD() != null ? opCtx.MOD() : null
+			opCtx.NOT_EQUAL() != null ? opCtx.NOT_EQUAL() : null
 		);
 
 		return new BinOp(op.getText(), visit(ctx.expr(0)), visit(ctx.expr(1)));

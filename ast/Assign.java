@@ -15,9 +15,9 @@ public class Assign extends Node{
 	}
 	
 	public void print(String padding){
-		location.print(padding);
-		System.out.print(" " + assignOp);
-		expr.print(padding);
+		System.out.println(padding + assignOp);
+		location.print(padding + "\t");
+		expr.print(padding + "\t");
 	}
 	
 	public void print(){

@@ -1360,6 +1360,7 @@ public class DecafParser extends Parser {
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
+		public TerminalNode MOD() { return getToken(DecafParser.MOD, 0); }
 		public MultDivContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -1462,7 +1463,7 @@ public class DecafParser extends Parser {
 				_prevctx = _localctx;
 
 				setState(210); match(SUBS);
-				setState(211); expr(3);
+				setState(211); expr(6);
 				}
 				break;
 
@@ -1472,7 +1473,7 @@ public class DecafParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(212); match(NOT);
-				setState(213); expr(2);
+				setState(213); expr(5);
 				}
 				break;
 
@@ -1530,14 +1531,14 @@ public class DecafParser extends Parser {
 						_localctx = new MultDivContext(new ExprContext(_parentctx, _parentState, _p));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(223);
-						if (!(6 >= _localctx._p)) throw new FailedPredicateException(this, "6 >= $_p");
+						if (!(4 >= _localctx._p)) throw new FailedPredicateException(this, "4 >= $_p");
 						setState(224);
 						_la = _input.LA(1);
-						if ( !(_la==TIMES || _la==DIV) ) {
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << TIMES) | (1L << DIV) | (1L << MOD))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
 						consume();
-						setState(225); expr(7);
+						setState(225); expr(5);
 						}
 						break;
 
@@ -1546,14 +1547,14 @@ public class DecafParser extends Parser {
 						_localctx = new PlusMinContext(new ExprContext(_parentctx, _parentState, _p));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(226);
-						if (!(5 >= _localctx._p)) throw new FailedPredicateException(this, "5 >= $_p");
+						if (!(3 >= _localctx._p)) throw new FailedPredicateException(this, "3 >= $_p");
 						setState(227);
 						_la = _input.LA(1);
 						if ( !(_la==SUBS || _la==PLUS) ) {
 						_errHandler.recoverInline(this);
 						}
 						consume();
-						setState(228); expr(6);
+						setState(228); expr(4);
 						}
 						break;
 
@@ -1562,7 +1563,7 @@ public class DecafParser extends Parser {
 						_localctx = new Bin_op_expContext(new ExprContext(_parentctx, _parentState, _p));
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(229);
-						if (!(4 >= _localctx._p)) throw new FailedPredicateException(this, "4 >= $_p");
+						if (!(2 >= _localctx._p)) throw new FailedPredicateException(this, "2 >= $_p");
 						setState(230); bin_op();
 						setState(231); expr(0);
 						}
@@ -1657,10 +1658,9 @@ public class DecafParser extends Parser {
 		public TerminalNode LESS() { return getToken(DecafParser.LESS, 0); }
 		public TerminalNode OR() { return getToken(DecafParser.OR, 0); }
 		public TerminalNode EQUAL() { return getToken(DecafParser.EQUAL, 0); }
-		public TerminalNode LTOE() { return getToken(DecafParser.LTOE, 0); }
 		public TerminalNode GREATER() { return getToken(DecafParser.GREATER, 0); }
+		public TerminalNode LTOE() { return getToken(DecafParser.LTOE, 0); }
 		public TerminalNode NOT_EQUAL() { return getToken(DecafParser.NOT_EQUAL, 0); }
-		public TerminalNode MOD() { return getToken(DecafParser.MOD, 0); }
 		public Bin_opContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1689,7 +1689,7 @@ public class DecafParser extends Parser {
 			{
 			setState(242);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << EQUAL) | (1L << NOT_EQUAL) | (1L << GREATER) | (1L << LESS) | (1L << GTOE) | (1L << LTOE) | (1L << AND) | (1L << OR) | (1L << MOD))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << EQUAL) | (1L << NOT_EQUAL) | (1L << GREATER) | (1L << LESS) | (1L << GTOE) | (1L << LTOE) | (1L << AND) | (1L << OR))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			consume();
@@ -1812,11 +1812,11 @@ public class DecafParser extends Parser {
 	}
 	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 0: return 6 >= _localctx._p;
+		case 0: return 4 >= _localctx._p;
 
-		case 1: return 5 >= _localctx._p;
+		case 1: return 3 >= _localctx._p;
 
-		case 2: return 4 >= _localctx._p;
+		case 2: return 2 >= _localctx._p;
 		}
 		return true;
 	}
@@ -1841,10 +1841,10 @@ public class DecafParser extends Parser {
 		"\u00e0\n\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\7\16\u00ec"+
 		"\n\16\f\16\16\16\u00ef\13\16\3\17\3\17\5\17\u00f3\n\17\3\20\3\20\3\21"+
 		"\3\21\3\22\3\22\3\22\2\23\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"\2"+
-		"\7\3\2,-\3\2*+\4\2!(..\3\2/\61\4\2\3\4\6\6\u010c\2$\3\2\2\2\4\66\3\2\2"+
-		"\2\6H\3\2\2\2\bL\3\2\2\2\n\\\3\2\2\2\fa\3\2\2\2\16d\3\2\2\2\20t\3\2\2"+
-		"\2\22\u0083\3\2\2\2\24\u00a8\3\2\2\2\26\u00c8\3\2\2\2\30\u00d1\3\2\2\2"+
-		"\32\u00df\3\2\2\2\34\u00f2\3\2\2\2\36\u00f4\3\2\2\2 \u00f6\3\2\2\2\"\u00f8"+
+		"\7\3\2,.\3\2*+\3\2!(\3\2/\61\4\2\3\4\6\6\u010c\2$\3\2\2\2\4\66\3\2\2\2"+
+		"\6H\3\2\2\2\bL\3\2\2\2\n\\\3\2\2\2\fa\3\2\2\2\16d\3\2\2\2\20t\3\2\2\2"+
+		"\22\u0083\3\2\2\2\24\u00a8\3\2\2\2\26\u00c8\3\2\2\2\30\u00d1\3\2\2\2\32"+
+		"\u00df\3\2\2\2\34\u00f2\3\2\2\2\36\u00f4\3\2\2\2 \u00f6\3\2\2\2\"\u00f8"+
 		"\3\2\2\2$%\7\24\2\2%&\7\n\2\2&*\7\37\2\2\')\5\4\3\2(\'\3\2\2\2),\3\2\2"+
 		"\2*(\3\2\2\2*+\3\2\2\2+\60\3\2\2\2,*\3\2\2\2-/\5\b\5\2.-\3\2\2\2/\62\3"+
 		"\2\2\2\60.\3\2\2\2\60\61\3\2\2\2\61\63\3\2\2\2\62\60\3\2\2\2\63\64\7 "+

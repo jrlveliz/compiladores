@@ -13,7 +13,10 @@ public class BinOp extends Node{
 	
 	public void print(String padding){
 		System.out.println(padding + operator);
-		left.print(padding + "\t");
+		
+		if(left != null)
+			left.print(padding + "\t");
+		
 		right.print(padding + "\t");
 	}
 } 

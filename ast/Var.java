@@ -31,7 +31,17 @@ public class Var extends Node{
 	}
 
 	public void print(String padding){
-		
+		String str = "";
+
+		switch(style){
+			case "ARRAY" :
+				System.out.println(padding + id + "[]");
+				exprLength.print(padding + "\t");
+				break;
+			case "VARIABLE" :
+				System.out.println(padding + id);
+				break;
+		}
 	}
 	
 	public void print(){
