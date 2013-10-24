@@ -2,6 +2,7 @@ package compiler.ast;
 
 import java.util.List;
 import java.util.LinkedList;
+import compiler.lib.*;
 
 class MethodCall extends Node{
 	private String id;
@@ -21,12 +22,15 @@ class MethodCall extends Node{
 
 	public void print(String padding){
 		if(sCallType == "CALLOUT")
-			System.out.println(padding + sCallType + " " + id);
+			Log.logln("AST", padding + sCallType + " function: " + id.replace("\"", ""));
 		else
-			System.out.println(padding + id + "()");
+			Log.logln("AST", padding + id + "()");
+
+		if(argList.size() > 0)
+			Log.logln("AST", padding + "\tParams:");
 
 		for (Node arg : argList) {
-			arg.print(padding + "\t");
+			arg.print(padding + "\t\t");
 		}
 	}
 }

@@ -33,4 +33,20 @@ public class Log{
 			}
 		}
 	}
+
+	public void log(String sStage, String text){
+		if(Debug.DebugAST){
+			System.out.print(text);
+		}
+
+		Log.write(text);
+	}
+
+	public static void logln(String sStage, String text){
+		if(Debug.DebugAST){
+			System.out.println(text);
+		}
+
+		Log.write(text + "\n");
+	}
 }

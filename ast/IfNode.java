@@ -2,6 +2,7 @@ package compiler.ast;
  
 import java.util.List;
 import java.util.LinkedList;
+import compiler.lib.*;
  
 public class IfNode extends Node{
 	private Node nCondition;
@@ -15,15 +16,17 @@ public class IfNode extends Node{
 	}
 
 	public void print(String padding){
-		System.out.print(padding + "IF ");
-		nCondition.print("");
-		System.out.println(padding + "\tTHEN ->");
-		bConsec.print(padding + "\t\t");
+		Log.logln("AST", padding + "IF ");
+		nCondition.print(padding + "\t");
+		Log.logln("AST", padding + "THEN ->");
+		bConsec.print(padding + "\t");
 
 		if(bAltern != null){
-			System.out.println(padding + "\tELSE ->");
-			bAltern.print(padding + "\t\t");
+			Log.logln("AST", padding + "ELSE ->");
+			bAltern.print(padding + "\t");
 		}
+
+		Log.logln("AST", padding + "ENDIF\n");
 	}
 	
 	public void print(){

@@ -1,4 +1,5 @@
 package compiler.ast;
+import compiler.lib.*;
  
 public class BinOp extends Node{
 	private String operator;
@@ -12,7 +13,7 @@ public class BinOp extends Node{
 	}
 	
 	public void print(String padding){
-		System.out.println(padding + operator);
+		Log.logln("AST", padding + operator);
 		
 		if(left != null)
 			left.print(padding + "\t");

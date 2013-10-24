@@ -1,5 +1,7 @@
 package compiler.ast;
 
+import compiler.lib.*;
+
 public class Var extends Node{
 	public String id;
 	public int length;
@@ -35,11 +37,12 @@ public class Var extends Node{
 
 		switch(style){
 			case "ARRAY" :
-				System.out.println(padding + id + "[]");
+				Log.logln("AST", padding + id + "[]");
+				Log.logln("AST", padding + "\tARRIDX:");
 				exprLength.print(padding + "\t");
 				break;
 			case "VARIABLE" :
-				System.out.println(padding + id);
+				Log.logln("AST", padding + id);
 				break;
 		}
 	}

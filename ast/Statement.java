@@ -2,6 +2,7 @@ package compiler.ast;
  
 import java.util.List;
 import java.util.LinkedList;
+import compiler.lib.*;
  
 public class Statement extends Node{
 	String statementType;
@@ -17,8 +18,12 @@ public class Statement extends Node{
 	}
 
 	public void print(String padding){
-		System.out.println(padding + statementType);
-		expReturn.print(padding);
+		Log.logln("AST", padding + statementType);
+
+		if(expReturn != null)
+			expReturn.print(padding + "\t");
+		else
+			Log.logln("AST", "");
 	}
 	
 	public void print(){

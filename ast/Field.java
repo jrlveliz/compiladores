@@ -2,6 +2,7 @@ package compiler.ast;
 
 import java.util.List;
 import java.util.LinkedList;
+import compiler.lib.*;
 
 public class Field extends Node{
 	private String type;
@@ -27,6 +28,9 @@ public class Field extends Node{
 			sVarList += (x.style == "ARRAY" ? x.id + "[" + x.length + "]" : x.id) + ", ";
 		}
 
-		System.out.println(padding + type + sVarList);
+		if(sVarList.endsWith(", "))
+			sVarList = sVarList.substring(0, sVarList.length() - 2) + ";";
+
+		Log.logln("AST", padding + type + sVarList);
 	}
 }

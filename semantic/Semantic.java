@@ -5,10 +5,11 @@ import compiler.irt.*;
 
 public class Semantic{
 	private String sStage;
+	private Ast ast;
 
 	public Semantic(Ast ast1){
 		sStage = "semantic"; // Who am I?
-
+		this.ast = ast1;
 		//Log.write("stage: [semantic]");
 		//System.out.println("stage: [semantic]");
 		Debug.print("debug: [semantic]", sStage);
@@ -20,6 +21,6 @@ public class Semantic{
 	}
 
 	public void start(){
-
+		Root rootNode = ast.start();
 	}
 }

@@ -6,7 +6,7 @@ class Program {
   }
 
   int main() {
-    a = add(2, 3);
+    a = add(0xa, 3);
     return a;
   }
 }

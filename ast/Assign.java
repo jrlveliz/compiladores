@@ -2,6 +2,7 @@ package compiler.ast;
  
 import java.util.List;
 import java.util.LinkedList;
+import compiler.lib.*;
  
 public class Assign extends Node{
 	private Node location;
@@ -15,7 +16,7 @@ public class Assign extends Node{
 	}
 	
 	public void print(String padding){
-		System.out.println(padding + assignOp);
+		Log.logln("AST", padding + assignOp);
 		location.print(padding + "\t");
 		expr.print(padding + "\t");
 	}

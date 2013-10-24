@@ -1,8 +1,10 @@
 package compiler.ast;
+
 import compiler.lib.*;
 import compiler.parser.*;
 import compiler.semantic.*;
 import org.antlr.v4.runtime.tree.*;
+import compiler.lib.*;
 
 public class Ast{
 	private String sStage;
@@ -11,7 +13,7 @@ public class Ast{
 		sStage = "ast"; // Who am I?
 		parser = parser1;
 		//Log.write("stage: [ast]");
-		//System.out.println("stage: [ast]");
+		//Log.logln("AST", "stage: [ast]");
 		Debug.print("debug: [ast]", sStage);
 	}
 

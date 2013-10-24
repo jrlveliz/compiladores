@@ -96,12 +96,12 @@ public class Compiler{
 			}else{
 				Log.init(options[0]);
 				File f = new File(options[5]);
+
 				if(f.exists()) {
 					Scanner scanner1 = new Scanner(options[5]);
 					CC4Parser parser1 = new CC4Parser(scanner1);
 					Ast ast1 = new Ast(parser1);
 					Semantic semantic1 = new Semantic(ast1);
-					//Semantic semantic1 = new Semantic();
 
 					if(Debug.target.equals("scan")){
 						scanner1.scan();

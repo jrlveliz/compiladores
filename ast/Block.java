@@ -2,6 +2,7 @@ package compiler.ast;
  
 import java.util.List;
 import java.util.LinkedList;
+import compiler.lib.*;
  
 public class Block extends Node{
 	private List<Var> varList;
@@ -24,19 +25,17 @@ public class Block extends Node{
 		String sVarList = "";
 
 		if(varList.size() > 0){
-			System.out.println("var decl ->");
+			Log.logln("AST", padding + "var decl ->");
 
 			for(Var n : varList){
 				sVarList += n.type + " " + n.id + ", ";
 			}
 
 			if(sVarList.endsWith(", "))
-				sVarList = sVarList.replace(", ", "");
-
-			sVarList += ";";
+				sVarList = sVarList.substring(0, sVarList.length() - 2) + ";";
 		}
 
-		System.out.println(padding + sVarList);
+		Log.logln("AST", padding + "\t" + sVarList);
 
 		for(Node stmnt : stmntList){
 			stmnt.print(padding);

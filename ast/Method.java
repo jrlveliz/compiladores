@@ -2,6 +2,7 @@ package compiler.ast;
 
 import java.util.List;
 import java.util.LinkedList;
+import compiler.lib.*;
 
 class Method extends Node{
 	private String type;
@@ -28,10 +29,11 @@ class Method extends Node{
 			sParamList += x.type + " " + x.id + ", ";
 		}
 
-		sParamList.replace(", \0", "\0");
+		if(sParamList.endsWith(", "))
+			sParamList = sParamList.substring(0, sParamList.length() - 2) + ";";
 
-		System.out.println(padding + type + " " + id + "(): " + (sParamList == "" ? "[NO_PARAM]" : sParamList));
-		block.print(padding);
+		Log.logln("AST", padding + type + " " + id + "(): " + (sParamList == "" ? "[NO_PARAM]" : sParamList));
+		block.print(padding + "\t");
 	}
 
 }

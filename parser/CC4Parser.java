@@ -43,7 +43,11 @@ public class CC4Parser{
 	}
 
 	public static void detectRule(String sRule){
-		System.out.println(sRule + " detected.");
+		if(Debug.DebugParser)
+			System.out.println(sRule + " detected.");
+
+		if(Debug.target == "parse")
+			Log.write(sRule + " detected.");
 	}
 
 	public ParseTree GetParseTree(){

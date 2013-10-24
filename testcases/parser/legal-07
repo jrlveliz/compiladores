@@ -12,6 +12,6 @@ class Program {
   }
 
   int main() {
-    return abs(-2);
+    return abs(abs(abs(abs('a'))));
   }
 }

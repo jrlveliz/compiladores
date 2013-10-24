@@ -2,6 +2,7 @@ package compiler.ast;
  
 import java.util.List;
 import java.util.LinkedList;
+import compiler.lib.*;
  
 public class Root extends Node{
 	private List<Field> fieldList;
@@ -22,12 +23,12 @@ public class Root extends Node{
 	
 	public void print(String padding){
 		for(Node n : fieldList){
-			System.out.println("field decl ->");
+			Log.logln("AST", "field decl ->");
 			n.print(padding + "\t");
 		}
 
 		for(Node n : methodList){
-			System.out.println("method decl ->");
+			Log.logln("AST", "method decl ->");
 			n.print(padding + "\t");
 		}
 	}

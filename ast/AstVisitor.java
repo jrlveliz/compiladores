@@ -4,6 +4,7 @@ import java.util.List;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import compiler.parser.DecafParser;
 import compiler.parser.DecafParserBaseVisitor;
+import compiler.lib.*;
  
 public class AstVisitor extends DecafParserBaseVisitor<Node>{
 	
@@ -91,7 +92,7 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 		List<DecafParser.StatementContext> statementList = ctx.statement();
 
 		for(DecafParser.StatementContext statement : statementList){
-			// System.out.println("statement ast" + statement.location().ID().getText());
+			// Log.logln("AST", "statement ast" + statement.location().ID().getText());
 			block.addStatement(visit(statement));
 		}
 
@@ -111,7 +112,7 @@ public class AstVisitor extends DecafParserBaseVisitor<Node>{
 
 	@Override
 	public Node visitMethodCall(DecafParser.MethodCallContext ctx){
-		return new Statement("METHOD_CALL");
+		return visit(ctx.method_call());
 	}
 
 		@Override

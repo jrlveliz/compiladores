@@ -1,6 +1,8 @@
 class Program {
-  void main() {
-  	int kaka;
-    a = -3 * 4 / 6 + (F[b+2] - foo());
+  int a[32];
+
+  void main(int pedo) {
+  	int ola;
+    a = -3 * 4 / 6 + (F[b + 2 + foo()] - foo());
   }
 }

@@ -2,6 +2,7 @@ package compiler.ast;
  
 import java.util.List;
 import java.util.LinkedList;
+import compiler.lib.*;
  
 public class ForNode extends Node{
 	private String id;
@@ -17,11 +18,10 @@ public class ForNode extends Node{
 	}
 
 	public void print(String padding){
-		System.out.print(padding + "FOR " + id);
-		inicio.print(" :");
-		fin.print("");
-		System.out.println(padding + "\t->");
-		instrucciones.print(padding + "\t\t");
+		Log.logln("AST", padding + "FOR " + id);
+		inicio.print(padding + "\tFROM ");
+		fin.print(padding + "\tTO ");
+		instrucciones.print(padding + "\t");
 	}
 	
 	public void print(){

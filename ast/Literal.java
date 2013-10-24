@@ -1,5 +1,7 @@
 package compiler.ast;
 
+import compiler.lib.*;
+
 public class Literal extends Node{
 	public Object lit;
 	public String type;
@@ -7,7 +9,7 @@ public class Literal extends Node{
 	public Literal(String value, String type){
 		switch(type){
 			case "INT" :
-				lit = Integer.parseInt(value);
+				lit = Integer.decode(value);
 				break;
 			case "BOOLEAN" : 
 				lit = Boolean.parseBoolean(value);
@@ -23,7 +25,7 @@ public class Literal extends Node{
 	}
 
 	public void print(String padding){
-		System.out.println(padding + "LITERAL -> " + lit);
+		Log.logln("AST", padding + "LITERAL -> " + lit);
 	}
 	
 	public void print(){
