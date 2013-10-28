@@ -3,6 +3,7 @@ package compiler.ast;
 import java.util.List;
 import java.util.LinkedList;
 import compiler.lib.*;
+import compiler.semantic.*;
 
 public class Field extends Node{
 	private String type;
@@ -35,6 +36,12 @@ public class Field extends Node{
 	}
 
 	public boolean check(Node parent){
-		return true;
+		boolean valid = true;
+
+		for (Var var : var_list) {
+			valid &= Semantic.st.addVariable("GLOBAL", type.equals("INT") ? Symbol.SymType.INT : Symbol.SymType.BOOLEAN, var.id);
+		}
+
+		return valid;
 	}
 }

@@ -12,8 +12,8 @@ public class Symtab{
 	public boolean addVariable(String idScope, Symbol.SymType tType, String sID){
 		boolean valid = true;
 
-		if(htSym.contains(idScope + "," + sID)){
-			System.out.println("Error! La variable " + sID + " ya esta definida en el contexto " + idScope + ".");
+		if(htSym.containsKey(idScope + "," + sID)){
+			System.out.println("Error! La variable '" + sID + "' ya esta definida en el contexto " + idScope + ".");
 			valid = false;
 		}else{
 			htSym.put(idScope + "," + sID, new Symbol(idScope, tType, sID));

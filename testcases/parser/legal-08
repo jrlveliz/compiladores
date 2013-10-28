@@ -1,11 +1,11 @@
 class Program {
-  void bar(int b, boolean b) {
+  int b;
+  int bfwe, bfwe;
+
+  void bar(int a, boolean b) {
     for i = 0, a {
       a = a - 1;
     }
-  }
-
-  int bar(int a, boolean cc) {
   }
 
   void main() {
