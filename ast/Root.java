@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import compiler.lib.*;
  
 public class Root extends Node{
+	private Node parent;
 	private List<Field> fieldList;
 	private List<Method> methodList; 
 	
@@ -35,5 +36,19 @@ public class Root extends Node{
 	
 	public void print(){
 		print("");
+	}
+
+	public boolean check(Node ref){
+		boolean valid = true;
+
+		for (Field fld : fieldList) {
+			valid &= fld.check(this);
+		}
+
+		for (Method mtd : methodList) {
+			valid &= mtd.check(this);
+		}
+
+		return valid;
 	}
 }

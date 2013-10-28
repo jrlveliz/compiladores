@@ -111,6 +111,7 @@ public class Compiler{
 						parser1.parse();
 						ast1.start().print("");
 					}else if(Debug.target.equals("semantic")){
+						parser1.parse();
 						semantic1.start();
 					}
 				} else {

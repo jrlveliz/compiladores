@@ -6,6 +6,8 @@ import compiler.irt.*;
 public class Semantic{
 	private String sStage;
 	private Ast ast;
+	public static Symtab st;
+	public static int iCtxCount = 0;
 
 	public Semantic(Ast ast1){
 		sStage = "semantic"; // Who am I?
@@ -14,13 +16,15 @@ public class Semantic{
 		//System.out.println("stage: [semantic]");
 		Debug.print("debug: [semantic]", sStage);
 
-		// Verificamos si hasta aquí tiene que llegar
-		if(!Debug.target.equals(sStage)){
-			Irt irt1 = new Irt(this);
-		}
+		st = new Symtab();
 	}
 
 	public void start(){
 		Root rootNode = ast.start();
+		System.out.println(rootNode.check(null));
+	}
+
+	public void addVar(String idScope, Symbol.SymType tType, String sID){
+		st.addVariable(idScope, tType, sID);
 	}
 }

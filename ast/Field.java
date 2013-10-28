@@ -33,4 +33,8 @@ public class Field extends Node{
 
 		Log.logln("AST", padding + type + sVarList);
 	}
+
+	public boolean check(Node parent){
+		return true;
+	}
 }

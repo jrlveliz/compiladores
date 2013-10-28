@@ -32,4 +32,8 @@ public class IfNode extends Node{
 	public void print(){
 		print("");
 	}
+
+	public boolean check(Node parent){
+		return true;
+	}
 }

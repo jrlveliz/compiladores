@@ -20,4 +20,8 @@ public class BinOp extends Node{
 		
 		right.print(padding + "\t");
 	}
+
+	public boolean check(Node parent){
+		return true;
+	}
 } 

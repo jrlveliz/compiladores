@@ -33,4 +33,8 @@ class MethodCall extends Node{
 			arg.print(padding + "\t\t");
 		}
 	}
+
+	public boolean check(Node parent){
+		return true;
+	}
 }

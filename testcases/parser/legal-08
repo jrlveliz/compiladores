@@ -1,8 +1,11 @@
 class Program {
-  void bar(int a) {
+  void bar(int b, boolean b) {
     for i = 0, a {
       a = a - 1;
     }
+  }
+
+  int bar(int a, boolean cc) {
   }
 
   void main() {

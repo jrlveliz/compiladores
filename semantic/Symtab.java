@@ -9,57 +9,40 @@ public class Symtab{
 		htSym = new Hashtable<String, Symbol>();
 	}
 
-	public void addVariable(int iScope, SymType tType, String sID){
-		if(htSym.contains(iScope + "," + sID)){
-			System.out.println("Error! La variable " + sID + " ya esta definida.");
+	public boolean addVariable(String idScope, Symbol.SymType tType, String sID){
+		boolean valid = true;
+
+		if(htSym.contains(idScope + "," + sID)){
+			System.out.println("Error! La variable " + sID + " ya esta definida en el contexto " + idScope + ".");
+			valid = false;
 		}else{
-			htSym.put(iScope + "," + sID, new Symbol(iScope, tType, sID));
+			htSym.put(idScope + "," + sID, new Symbol(idScope, tType, sID));
 		}
-	}
-}
 
-class Symbol{
-	public SymStyle style;
-	public int scope;
-	public SymType type;
-	public String ID;
-	
-	public int length;
-	
-	public static int scopeCount = 0;
-	public List<Symbol> parameters;
-
-	// Constructor Variable
-	public Symbol(int iScope, SymType sType, String sID){
-		this.scope = iScope;
-		this.type = sType;
-		this.ID = sID;
-		this.style = SymStyle.VARIABLE;
+		return valid;
 	}
 
-	// Constructor Array
-	public Symbol(SymType sType, String sID, int iLength){
-		this.scope = 0; // Global Scope
-		this.type = sType;
-		this.ID = sID;
-		this.length = iLength;
-		this.style = SymStyle.ARRAY;
+	public boolean addMethod(Symbol mtd){
+		boolean valid = true;
+		String sMethodKey = "GLOBAL," + mtd.ID;
+		String sParTypes = "";
+
+		for (Symbol param : mtd.parameters) {
+			sMethodKey += "," + param.type.name();
+			sParTypes += param.type.name() + ", ";
+		}
+
+		if(sParTypes.endsWith(", "))
+			sParTypes = sParTypes.substring(0, sParTypes.length() - 2);
+
+		if(htSym.containsKey(sMethodKey)){
+			System.out.println("Error! El metodo " + mtd.ID + "(" + sParTypes + ") ya esta declarado.");
+			valid = false;
+		}else{
+
+			htSym.put(sMethodKey, mtd);
+		}
+
+		return valid;
 	}
-
-	// Constructor Método
-	public Symbol(SymType sType, String sID){
-		this.scope = 0; // Global Scope
-		this.type = sType;
-		this.ID = sID;
-		// this.length = iLength;
-		this.style = SymStyle.ARRAY;
-	}
-}
-
-enum SymStyle{
-	METHOD, VARIABLE, ARRAY
-}
-
-enum SymType{
-	INT, BOOLEAN, VOID
 }

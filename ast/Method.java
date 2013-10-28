@@ -3,6 +3,7 @@ package compiler.ast;
 import java.util.List;
 import java.util.LinkedList;
 import compiler.lib.*;
+import compiler.semantic.*;
 
 class Method extends Node{
 	private String type;
@@ -36,4 +37,16 @@ class Method extends Node{
 		block.print(padding + "\t");
 	}
 
+	public boolean check(Node parent){
+		boolean valid = true;
+		Symbol mtd = new Symbol(type.equals("int") ? Symbol.SymType.INT : type.equals("boolean") ? Symbol.SymType.BOOLEAN : Symbol.SymType.VOID, id);
+
+		for (Var var : param_list) {
+			valid &= mtd.addParam(id, var.type.equals("int") ? Symbol.SymType.INT : var.type.equals("boolean") ? Symbol.SymType.BOOLEAN : null, var.id);
+		}
+
+		valid &= Semantic.st.addMethod(mtd);
+
+		return valid;
+	}
 }
