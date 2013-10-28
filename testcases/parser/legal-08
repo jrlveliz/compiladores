@@ -3,6 +3,8 @@ class Program {
   int bfwe, bfwe;
 
   void bar(int a, boolean b) {
+    int j, j;
+    
     for i = 0, a {
       a = a - 1;
     }

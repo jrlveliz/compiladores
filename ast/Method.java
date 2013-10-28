@@ -6,10 +6,10 @@ import compiler.lib.*;
 import compiler.semantic.*;
 
 class Method extends Node{
-	private String type;
-	private String id;
-	private LinkedList<Var> param_list;
-	private Node block;
+	public String type;
+	public String id;
+	public LinkedList<Var> param_list;
+	public Node block;
 
 	public Method(String type, String id, Node block){
 		param_list = new LinkedList<Var>();
@@ -39,13 +39,13 @@ class Method extends Node{
 
 	public boolean check(Node parent){
 		boolean valid = true;
-		Symbol mtd = new Symbol(type.equals("int") ? Symbol.SymType.INT : type.equals("boolean") ? Symbol.SymType.BOOLEAN : Symbol.SymType.VOID, id);
+		Symbol mtd = new Symbol(Symbol.checkType(type), id);
 
 		for (Var var : param_list) {
-			valid &= mtd.addParam(id, var.type.equals("int") ? Symbol.SymType.INT : var.type.equals("boolean") ? Symbol.SymType.BOOLEAN : null, var.id);
+			valid &= mtd.addParam(id, Symbol.checkType(var.type), var.id);
 		}
 
-		valid &= Semantic.st.addMethod(mtd);
+		valid &= Semantic.st.addMethod(mtd) && block.check(this);
 
 		return valid;
 	}

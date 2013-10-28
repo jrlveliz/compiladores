@@ -62,6 +62,10 @@ public class Symbol{
 		return valid;
 	}
 
+	public static SymType checkType(String sType){
+		return sType.equals("int") ? Symbol.SymType.INT : sType.equals("boolean") ? Symbol.SymType.BOOLEAN : Symbol.SymType.VOID;
+	}
+
 	public enum SymType{
 		INT, BOOLEAN, VOID
 	}

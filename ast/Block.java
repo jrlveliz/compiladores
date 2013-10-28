@@ -3,6 +3,7 @@ package compiler.ast;
 import java.util.List;
 import java.util.LinkedList;
 import compiler.lib.*;
+import compiler.semantic.*;
  
 public class Block extends Node{
 	private List<Var> varList;
@@ -47,6 +48,16 @@ public class Block extends Node{
 	}
 
 	public boolean check(Node parent){
-		return true;
+		boolean valid = true;
+
+		if(parent instanceof Method){
+			for (Var var : varList) {
+				Method mtd = (Method) parent;
+				
+				valid &= Semantic.st.addVariable(mtd.id, Symbol.checkType(var.type), var.id);
+			}
+		}
+
+		return valid;
 	}
 }
