@@ -29,6 +29,8 @@ public class ForNode extends Node{
 	}
 
 	public boolean check(Node parent){
-		return true;
+		this.parent = parent;
+
+		return instrucciones.check(this);
 	}
 }

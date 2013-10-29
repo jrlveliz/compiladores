@@ -6,7 +6,12 @@ class Program {
     int j, j;
     
     for i = 0, a {
+      int k,k;
       a = a - 1;
+
+      if(1==1){
+        int var1, var1;
+      }
     }
   }
 

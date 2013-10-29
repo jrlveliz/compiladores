@@ -34,6 +34,8 @@ public class IfNode extends Node{
 	}
 
 	public boolean check(Node parent){
-		return true;
+		this.parent = parent;
+
+		return bConsec.check(this) && (bAltern == null ? true : bAltern.check(this));
 	}
 }

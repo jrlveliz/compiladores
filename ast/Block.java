@@ -8,10 +8,15 @@ import compiler.semantic.*;
 public class Block extends Node{
 	private List<Var> varList;
 	private List<Node> stmntList;
-	
+	private int iCountCtx;
+	private String sCtxID;
+	public Node parent;
+
 	public Block(){
 		varList = new LinkedList<Var>();
 		stmntList = new LinkedList<Node>();
+		sCtxID = "";
+		iCountCtx = 0;
 	}
 	
 	public void addVar(Var var){
@@ -49,13 +54,27 @@ public class Block extends Node{
 
 	public boolean check(Node parent){
 		boolean valid = true;
+		this.parent = parent;
 
 		if(parent instanceof Method){
-			for (Var var : varList) {
-				Method mtd = (Method) parent;
-				
-				valid &= Semantic.st.addVariable(mtd.id, Symbol.checkType(var.type), var.id);
-			}
+			sCtxID = ((Method)parent).id;
+		}else if(parent instanceof IfNode || parent instanceof ForNode){
+			((Block)(parent.parent)).iCountCtx++;
+			System.out.println(parent.getClass().toString());
+			sCtxID = ((Block)(parent.parent)).sCtxID + "." + ((Block)(parent.parent)).iCountCtx;
+		}else{
+			((Block)parent).iCountCtx++;
+			sCtxID = ((Block)parent).sCtxID + "." + ((Block)parent).iCountCtx;
+		}
+
+		System.out.println("NUEVO CONTEXTO: " + sCtxID);
+
+		for (Var var : varList) {
+			valid &= Semantic.st.addVariable(sCtxID, Symbol.checkType(var.type), var.id);
+		}
+
+		for(Node stmnt : stmntList){
+			valid &= stmnt.check(this);
 		}
 
 		return valid;
